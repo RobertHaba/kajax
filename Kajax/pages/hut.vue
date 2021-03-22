@@ -82,8 +82,8 @@
                 </div>
             </div>
         </section>
-        <section class="hut-container hut-container--gray">
-            <div class="hut-layout hut-layout--column">
+        <section class="hut-container">
+            <div class="hut-layout">
                 <header class="hut-layout-header">
                     <h2 class="hut-layout-header__title">Galeria</h2>
                 </header>
@@ -117,10 +117,56 @@
                 </div>
             </div>
         </section>
+        <section class="hut-container hut-container--gray">
+            <div class="hut-layout hut-layout--column">
+                <header class="hut-layout-header">
+                    <h2 class="hut-layout-header__title">Cennik wynajmu</h2>
+                    <p class="hut-layout-header__subtitle">Wybierz odpowiedni pakiet dla siebie i zadzwoń!</p>
+                </header>
+                <div class="hut-layout-content hut-layout-content--price-section">
+                    <div class="price-card" v-for="priceCard in hutPage.priceCard" :key="priceCard.id">
+                        <div class="price-card-header">
+                            <h3 class="price-card-header__title">
+                                {{priceCard.title}}
+                            </h3>
+                            <p v-if="priceCard.months">{{priceCard.months}}</p>
+                        </div>
+                        <div class="price-card-variants" v-for="priceVariant in priceCard.priceVariants" :key="priceVariant.id">
+                            <div class="price-card-variants__img-box">
+                                <img class="card-variants-img" :src="linkPrefix + priceVariant.icon.url" alt="">
+                            </div>
+                            <div class="price-card-variants__content">
+                                <h4 class="card-variants-title">{{priceVariant.title}}</h4>
+                                <p>
+                                    <span class="price" :class="{'price--promotion': priceVariant.oldPrice !== null }">{{priceVariant.price}}zł </span> <span class="price-old" v-if="priceVariant.oldPrice !== null">{{priceVariant.oldPrice}}zł</span> / doba
+                                </p>
+                                <p>
+                                {{priceVariant.shortDescription1}}  
+                                </p>
+                                <p v-if="priceVariant.shortDescription2">
+                                {{priceVariant.shortDescription2}}  
+                                </p>
+                            </div>
+                        </div>
+                            <a class="price-button" href="tel:+48696599556">Zadzwoń</a>
+                    </div>
+                </div>
+                    <div class="additional-information" v-if="hutPage.additionalInformation">
+                        <h3 class="additional-information__title">
+                            {{hutPage.additionalInformation.title}}
+                        </h3>
+                        <p>
+                            {{hutPage.additionalInformation.description}}
+                        </p>
+                    </div>
+            </div>
+        </section>
+        <Footer />
    </div>
 </template>
 
 <script>
+import Footer from '~/components/Home/Footer'
 import hutQuery from '~/apollo/queries/page/hut'
 export default {
     name:'hut',
@@ -130,6 +176,9 @@ export default {
             hutPage:'',
             linkPrefix: 'http://192.168.1.50:1337',
         }
+    },
+    components:{
+        Footer
     },
     apollo:{
         hutPage:{
@@ -172,11 +221,6 @@ export default {
         background-color: #005492;
         z-index: 4
     }
-    @media screen and (max-width:950px) {
-        .hut-container{
-            padding: 7rem 2rem;
-        }
-    }
     .hut-container--header{
         padding: 0;
         height: 100vh;
@@ -185,6 +229,11 @@ export default {
         margin-bottom: 0;
         padding-bottom: 8rem;
         background-color: #F4F4F4;
+    }
+    @media screen and (max-width:950px) {
+        .hut-container{
+            padding: 7rem 2rem;
+        }
     }
     @media screen and (max-width:750px) {
         .hut-header-title{
@@ -417,6 +466,7 @@ export default {
     }
     .hut-layout-content--gallery{
         flex-direction: column;
+        flex-wrap: nowrap;
     }
     .hut-layout-content--price-section{
         width: 100%;
@@ -501,7 +551,7 @@ export default {
         position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: stretch;
         width: 100%;
         max-width: 380px;
@@ -553,7 +603,7 @@ export default {
         font-size: 1.2rem;
         font-weight: bold;
     }
-    .price--old{
+    .price-old{
         color:#ACACAC;
         text-decoration-line: line-through;
     }
@@ -578,7 +628,7 @@ export default {
     }
     .additional-information__title{
         margin-bottom: 1rem;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         font-weight: bold;
     }
     /* Gallery */

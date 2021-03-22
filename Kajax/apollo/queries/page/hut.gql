@@ -9,6 +9,7 @@ query hutPage {
       formats
     }
     hutPageContent{
+      id
       title
       text
       image{
@@ -51,6 +52,7 @@ query hutPage {
       }
     }
     additionalInformation{
+      id
       title
       description
     }
