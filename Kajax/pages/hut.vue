@@ -46,6 +46,21 @@
                 </div>
             </div>
         </section>
+        <section class="hut-container hut-container--column hut-container--left">
+            <div class="content-column content-column--left">
+                <h2 class="content-column__title">
+                    {{hutPage.hutPageContent[1].title}}
+                </h2>
+                <div class="road-content-text" v-html="$md.render(hutPage.hutPageContent[1].text)">
+                </div>
+            </div>
+            <div class="content-column content-column--right content-column--image">
+                <picture>
+                    <source :srcset="linkPrefix + hutPage.hutPageContent[1].image.formats.small.url" media="(max-width: 1000px)">
+                    <img :src="linkPrefix + hutPage.hutPageContent[1].image.formats.medium.url" alt="">
+                </picture>
+            </div>
+        </section>
    </div>
 </template>
 
