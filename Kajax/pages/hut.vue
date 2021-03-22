@@ -17,7 +17,18 @@
                 </picture>
             </div>
         </header>
-        
+        <section class="hut-container hut-container--column">
+            <div class="content-column content-column--left content-column--image">
+                <picture>
+                    <source :srcset="linkPrefix + hutPage.hutPageContent[0].image.formats.small.url" media="(max-width: 1000px)">
+                    <img :src="linkPrefix + hutPage.hutPageContent[0].image.formats.medium.url" alt="">
+                </picture>
+            </div>
+            <div class="content-column content-column--right">
+                <div class="road-content-text" v-html="$md.render(hutPage.hutPageContent[0].text)">
+                </div>
+            </div>
+        </section>
    </div>
 </template>
 
@@ -248,6 +259,9 @@ export default {
         .content-column--left.content-column--image::before{
             display: none;
         }
+    }
+    .content-column--image{
+        max-height: 400px;
     }
     .content-column--image img{
         width: 100%;
