@@ -82,6 +82,41 @@
                 </div>
             </div>
         </section>
+        <section class="hut-container hut-container--gray">
+            <div class="hut-layout hut-layout--column">
+                <header class="hut-layout-header">
+                    <h2 class="hut-layout-header__title">Galeria</h2>
+                </header>
+                <div class="hut-layout-content hut-layout-content--gallery">
+                    <div class="gallery-header">
+                        <div class="gallery-thumbnails-card" v-for="thumbnail in hutPage.hutGallery" :key="thumbnail.id">
+                            <img :src="linkPrefix + thumbnail.image[0].formats.thumbnail.url" alt="" class="gallery-thumbnails-card__img">
+                            <h3 class="gallery-thumbnails-card__title">
+                                {{thumbnail.title}}
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="gallery-content">
+                        <div class="gallery-content__column gallery-content__column--big">
+                            <picture>
+                                <source media="(min-width: 1150px)" :srcset="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.small.url">
+                                <source media="(min-width: 850px)" :srcset="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.medium.url">
+                                <img class="gallery-image gallery-image--big" :src="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.small.url" alt="">
+                            </picture>
+                            <p class="gallery-subtitle">
+                                Zobacz naszą galerię obiektu
+                            </p>
+                        </div>
+                        <div class="gallery-content__column gallery-content__column--tile">
+                            <picture v-for="(galleryImg, index) in hutPage.hutGallery[activeGallery].image" :key="galleryImg.id" v-if="index">
+                                <img class="gallery-image" :src="linkPrefix + galleryImg.formats.small.url" alt="">
+                            </picture>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
    </div>
 </template>
 
@@ -91,6 +126,7 @@ export default {
     name:'hut',
     data(){
         return{
+            activeGallery:0,
             hutPage:'',
             linkPrefix: 'http://192.168.1.50:1337',
         }
