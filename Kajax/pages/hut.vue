@@ -25,7 +25,24 @@
                 </picture>
             </div>
             <div class="content-column content-column--right">
+                <h2 class="content-column__title">
+                    {{hutPage.hutPageContent[0].title}}
+                </h2>
                 <div class="road-content-text" v-html="$md.render(hutPage.hutPageContent[0].text)">
+                </div>
+            </div>
+        </section>
+        <section class="hut-container hut-container--blue">
+            <div class="hut-layout">
+                <header class="hut-layout-header">
+                    <h2 class="hut-layout-header__title">Co dla Ciebie przygotowaliśmy?</h2>
+                </header>
+                <div class="hut-layout-content hut-layout-content--blue">
+                    <div class="hut-card" v-for="card in hutPage.card" :key="card.id">
+                            <img :src="linkPrefix + card.icon.url" alt="" class="hut-card__img">
+                            <h3 class="hut-card__title">{{card.title}}</h3>
+                            <p class="hut-card__text">{{card.text}}</p>
+                    </div>
                 </div>
             </div>
         </section>
