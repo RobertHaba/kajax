@@ -61,6 +61,27 @@
                 </picture>
             </div>
         </section>
+        <section class="hut-container hut-container--blue">
+            <div class="hut-layout hut-layout--column">
+                <header class="hut-layout-header">
+                    <h2 class="hut-layout-header__title">Wyposażenie w skrócie:</h2>
+                </header>
+                <div class="hut-layout-content hut-layout-content--blue">
+                    <div class="furnishings-box" v-for="furnishing in hutPage.furnishings" :key="furnishing.id">
+                        <div class="furnishings-box-header" >
+                            <h3 class="furnishings-box-header__title">
+                                {{furnishing.title}}
+                            </h3>
+                        </div>
+                        <ul class="furnishings-box-list" v-for="itemDescription in furnishing.description" :key="itemDescription.id">
+                            <li class="furnishings-box-list__item">
+                                {{itemDescription.text}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
    </div>
 </template>
 
