@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accessories",
+  "info": {
+    "name": "5. Sekcja Poznaj nasz sprzęt - Opis kajaków",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "maxLength": 280
+    },
+    "capacity": {
+      "type": "integer",
+      "required": true
+    },
+    "equipment": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

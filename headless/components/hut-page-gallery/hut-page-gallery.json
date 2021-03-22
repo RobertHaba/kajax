@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_hut_page_gallery_hut_page_galleries",
+  "info": {
+    "name": "hut-page-gallery",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 15
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

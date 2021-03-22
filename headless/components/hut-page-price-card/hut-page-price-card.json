@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_hut_page_price_card_hut_page_price_cards",
+  "info": {
+    "name": "hut-page-price-card",
+    "icon": "audio-description",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Sezon",
+      "maxLength": 25
+    },
+    "months": {
+      "type": "string",
+      "required": false,
+      "maxLength": 50
+    },
+    "priceVariants": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hut-page-price-card.price-variants",
+      "max": 2,
+      "required": true
+    }
+  }
+}

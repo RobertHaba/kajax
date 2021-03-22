@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "huts",
+  "info": {
+    "name": "7. Sekcja Wypożyczenie domka",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "hutContentMainSite": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hut-content-main-side.hut-content-main-side"
+    },
+    "imagesMainSite": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

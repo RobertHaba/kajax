@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_additional_information_additional_informations",
+  "info": {
+    "name": "additional-information",
+    "icon": "bezier-curve"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 40,
+      "required": true,
+      "default": "Dodatkowo"
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "maxLength": 200
+    }
+  }
+}

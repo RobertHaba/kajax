@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_hut_content_main_side_hut_content_main_sides",
+  "info": {
+    "name": "hut-content-main-side",
+    "icon": "air-freshener"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40
+    }
+  }
+}

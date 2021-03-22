@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/hut-page",
+      "handler": "hut-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/hut-page",
+      "handler": "hut-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/hut-page",
+      "handler": "hut-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

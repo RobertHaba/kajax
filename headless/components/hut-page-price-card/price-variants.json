@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_hut_page_price_card_price_variants",
+  "info": {
+    "name": "price-variants",
+    "icon": "align-center",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 30,
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "max": 100000
+    },
+    "shortDescription1": {
+      "type": "string",
+      "required": false,
+      "maxLength": 40
+    },
+    "shortDescription2": {
+      "type": "string",
+      "required": false,
+      "maxLength": 40
+    },
+    "oldPrice": {
+      "type": "decimal",
+      "max": 100000
+    }
+  }
+}

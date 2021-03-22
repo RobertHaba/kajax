@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_hut_page_content_hut_page_contents",
+  "info": {
+    "name": "hutPage-content",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 45,
+      "default": "Domek holenderski z bogatym wyposażeniem!"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "text": {
+      "type": "richtext",
+      "required": true,
+      "maxLength": 800
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_road_content_site_road_content_sites",
+  "info": {
+    "name": "road_content_site",
+    "icon": "align-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 50,
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true,
+      "maxLength": 900
+    }
+  }
+}

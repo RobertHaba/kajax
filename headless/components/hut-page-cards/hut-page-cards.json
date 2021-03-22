@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_hut_page_cards_hut_page_cards",
+  "info": {
+    "name": "hut-page-cards",
+    "icon": "border-all",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 25
+    },
+    "text": {
+      "type": "string",
+      "required": true,
+      "maxLength": 75
+    }
+  }
+}

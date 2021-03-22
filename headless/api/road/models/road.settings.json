@@ -1,0 +1,92 @@
+{
+  "kind": "collectionType",
+  "collectionName": "roads",
+  "info": {
+    "name": "3. Sekcja Trasy Rzeki Jeziora - Opis trasy",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 12
+    },
+    "subtitle": {
+      "type": "string",
+      "maxLength": 24,
+      "required": true
+    },
+    "road_level": {
+      "type": "string",
+      "private": false,
+      "required": true,
+      "maxLength": 12
+    },
+    "road_barriers": {
+      "type": "string",
+      "required": true,
+      "maxLength": 12
+    },
+    "road_transfers": {
+      "type": "integer",
+      "required": true,
+      "max": 1000
+    },
+    "road_length": {
+      "type": "decimal",
+      "required": true,
+      "max": 1000
+    },
+    "road_time": {
+      "type": "decimal",
+      "required": true,
+      "max": 1000
+    },
+    "roads_content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "road-content.road-content"
+    },
+    "road_map": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "road_content_site": {
+      "type": "component",
+      "repeatable": true,
+      "component": "road-content-site.road-content-site",
+      "required": true,
+      "max": 2,
+      "min": 1
+    },
+    "road_price": {
+      "type": "component",
+      "repeatable": true,
+      "component": "road-price-site.road-price-site",
+      "max": 2,
+      "min": 1,
+      "required": true
+    },
+    "description_site": {
+      "type": "text",
+      "required": true,
+      "maxLength": 60
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 155,
+      "required": true,
+      "minLength": 60
+    }
+  }
+}

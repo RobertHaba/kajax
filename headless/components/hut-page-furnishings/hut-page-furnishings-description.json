@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_hut_page_furnishings_hut_page_furnishings_descriptions",
+  "info": {
+    "name": "hut-page-furnishings-description",
+    "icon": "arrow-alt-circle-right"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true,
+      "maxLength": 25
+    }
+  }
+}

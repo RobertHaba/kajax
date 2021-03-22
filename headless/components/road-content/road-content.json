@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_road_content_road_contents",
+  "info": {
+    "name": "road_content",
+    "icon": "anchor"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 24,
+      "required": false
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

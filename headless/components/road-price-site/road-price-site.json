@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_road_price_site_road_price_sites",
+  "info": {
+    "name": "road_price_site",
+    "icon": "money-bill-alt"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    },
+    "normal_days": {
+      "type": "integer",
+      "required": true
+    },
+    "weekend_days": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

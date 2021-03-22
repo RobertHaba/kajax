@@ -1,0 +1,75 @@
+{
+  "kind": "singleType",
+  "collectionName": "hut_pages",
+  "info": {
+    "name": "Strona - Domek ",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "headerImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "headerTitle": {
+      "type": "string",
+      "required": true,
+      "maxLength": 35,
+      "default": "Wczasy w domku holenderskim"
+    },
+    "subtitleHeader": {
+      "type": "string",
+      "maxLength": 150,
+      "required": true,
+      "default": "Rozluźnij się przy grillu na tle wspaniałego jeziora. Skorzystaj z naszych udogodnień, aby spędzić niezapomniany czas! "
+    },
+    "hutPageContent": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hut-page-content.hut-page-content",
+      "max": 3,
+      "required": true
+    },
+    "card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hut-page-cards.hut-page-cards",
+      "max": 8,
+      "required": true
+    },
+    "furnishings": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hut-page-furnishings.hut-page-furnishings",
+      "max": 6,
+      "required": true
+    },
+    "priceCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hut-page-price-card.hut-page-price-card",
+      "max": 3,
+      "required": true
+    },
+    "additionalInformation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "additional-information.additional-information"
+    },
+    "hutGallery": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hut-page-gallery.hut-page-gallery",
+      "max": 8
+    }
+  }
+}
