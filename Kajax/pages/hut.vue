@@ -17,14 +17,14 @@
                 </picture>
             </div>
         </header>
-        <section class="hut-container hut-container--column">
-            <div class="content-column content-column--left content-column--image">
+        <section class="hut-container hut-container--column" data-animation-id="hut-container-content-1">
+            <div class="content-column content-column--left content-column--image" data-animation-id="hut-content-image-1">
                 <picture>
                     <source :srcset="linkPrefix + hutPage.hutPageContent[0].image.formats.small.url" media="(max-width: 1000px)">
                     <img :src="linkPrefix + hutPage.hutPageContent[0].image.formats.medium.url" alt="">
                 </picture>
             </div>
-            <div class="content-column content-column--right">
+            <div class="content-column content-column--right" data-animation-id="hut-content-column-1">
                 <h2 class="content-column__title">
                     {{hutPage.hutPageContent[0].title}}
                 </h2>
@@ -32,12 +32,12 @@
                 </div>
             </div>
         </section>
-        <section class="hut-container hut-container--blue">
+        <section class="hut-container hut-container--blue" data-animation-id="hut-container-card">
             <div class="hut-layout">
-                <header class="hut-layout-header">
+                <header class="hut-layout-header" data-animation-id="hut-card-title">
                     <h2 class="hut-layout-header__title">Co dla Ciebie przygotowaliśmy?</h2>
                 </header>
-                <div class="hut-layout-content hut-layout-content--blue">
+                <div class="hut-layout-content hut-layout-content--blue" data-animation-id="hut-card-content">
                     <div class="hut-card" v-for="card in hutPage.card" :key="card.id">
                             <img :src="linkPrefix + card.icon.url" alt="" class="hut-card__img">
                             <h3 class="hut-card__title">{{card.title}}</h3>
@@ -46,27 +46,27 @@
                 </div>
             </div>
         </section>
-        <section class="hut-container hut-container--column hut-container--left">
-            <div class="content-column content-column--left">
+        <section class="hut-container hut-container--column hut-container--left" data-animation-id="hut-container-content-2">
+            <div class="content-column content-column--left" data-animation-id="hut-content-column-2">
                 <h2 class="content-column__title">
                     {{hutPage.hutPageContent[1].title}}
                 </h2>
                 <div class="road-content-text" v-html="$md.render(hutPage.hutPageContent[1].text)">
                 </div>
             </div>
-            <div class="content-column content-column--right content-column--image">
+            <div class="content-column content-column--right content-column--image" data-animation-id="hut-content-image-2">
                 <picture>
                     <source :srcset="linkPrefix + hutPage.hutPageContent[1].image.formats.small.url" media="(max-width: 1000px)">
                     <img :src="linkPrefix + hutPage.hutPageContent[1].image.formats.medium.url" alt="">
                 </picture>
             </div>
         </section>
-        <section class="hut-container hut-container--blue">
+        <section class="hut-container hut-container--blue" data-animation-id="hut-container-furnishing">
             <div class="hut-layout hut-layout--column">
-                <header class="hut-layout-header">
+                <header class="hut-layout-header" data-animation-id="hut-furnishing-title">
                     <h2 class="hut-layout-header__title">Wyposażenie w skrócie:</h2>
                 </header>
-                <div class="hut-layout-content hut-layout-content--blue">
+                <div class="hut-layout-content hut-layout-content--blue" data-animation-id="hut-furnishing-content">
                     <div class="furnishings-box" v-for="furnishing in hutPage.furnishings" :key="furnishing.id">
                         <div class="furnishings-box-header" >
                             <h3 class="furnishings-box-header__title">
@@ -82,14 +82,14 @@
                 </div>
             </div>
         </section>
-        <section class="hut-container">
+        <section class="hut-container" v-if="hutPage.hutGallery" data-animation-id="hut-container-gallery">
             <div class="hut-layout">
-                <header class="hut-layout-header">
+                <header class="hut-layout-header" data-animation-id="hut-gallery-title">
                     <h2 class="hut-layout-header__title">Galeria</h2>
                 </header>
-                <div class="hut-layout-content hut-layout-content--gallery">
+                <div class="hut-layout-content hut-layout-content--gallery" data-animation-id="hut-gallery-content">
                     <div class="gallery-header">
-                        <div class="gallery-thumbnails-card" v-for="thumbnail in hutPage.hutGallery" :key="thumbnail.id">
+                        <div class="gallery-thumbnails-card" v-for="(thumbnail, index) in hutPage.hutGallery" :key="thumbnail.id" @click="activeGallery = index">
                             <img :src="linkPrefix + thumbnail.image[0].formats.thumbnail.url" alt="" class="gallery-thumbnails-card__img">
                             <h3 class="gallery-thumbnails-card__title">
                                 {{thumbnail.title}}
@@ -117,13 +117,13 @@
                 </div>
             </div>
         </section>
-        <section class="hut-container hut-container--gray">
+        <section class="hut-container hut-container--gray" data-animation-id="hut-container-price">
             <div class="hut-layout hut-layout--column">
-                <header class="hut-layout-header">
+                <header class="hut-layout-header" data-animation-id="hut-price-title">
                     <h2 class="hut-layout-header__title">Cennik wynajmu</h2>
                     <p class="hut-layout-header__subtitle">Wybierz odpowiedni pakiet dla siebie i zadzwoń!</p>
                 </header>
-                <div class="hut-layout-content hut-layout-content--price-section">
+                <div class="hut-layout-content hut-layout-content--price-section" data-animation-id="hut-price-content">
                     <div class="price-card" v-for="priceCard in hutPage.priceCard" :key="priceCard.id">
                         <div class="price-card-header">
                             <h3 class="price-card-header__title">
@@ -168,6 +168,7 @@
 <script>
 import Footer from '~/components/Home/Footer'
 import hutQuery from '~/apollo/queries/page/hut'
+import Animation from "~/components/assets/Animation"
 export default {
     name:'hut',
     data(){
@@ -186,6 +187,141 @@ export default {
             query: hutQuery
         },
     },
+    
+    methods: {
+    runAnimation(){
+            let hutContainerContent1 = document.querySelector('[data-animation-id="hut-container-content-1"]')
+            let hutContainerContent2 = document.querySelector('[data-animation-id="hut-container-content-2"]')
+            let hutContainerCard= document.querySelector('[data-animation-id="hut-container-card"]')
+            let hutContainerFurnishing= document.querySelector('[data-animation-id="hut-container-furnishing"]')
+            let hutContainerGallery= document.querySelector('[data-animation-id="hut-container-gallery"]')
+            let hutContainerPrice= document.querySelector('[data-animation-id="hut-container-price"]')
+            let lastKnownScrollPosition = 0;
+            document.addEventListener('scroll',()=>{
+                lastKnownScrollPosition = window.scrollY
+             Animation.methods.addAnimation({
+                       element: hutContainerContent1,
+                       elementToAnimate: hutContainerContent1.querySelector('[data-animation-id="hut-content-image-1"]'),
+                       classNameNew:'animation--fadeInLeftToRight',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: hutContainerContent1,
+                       elementToAnimate: hutContainerContent1.querySelector('[data-animation-id="hut-content-column-1"]'),
+                       classNameNew:'animation--fadeInRightToLeft',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })  
+             Animation.methods.addAnimation({
+                       element: hutContainerContent2,
+                       elementToAnimate: hutContainerContent2.querySelector('[data-animation-id="hut-content-image-2"]'),
+                       classNameNew:'animation--fadeInRightToLeft',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: hutContainerContent2,
+                       elementToAnimate: hutContainerContent2.querySelector('[data-animation-id="hut-content-column-2"]'),
+                       classNameNew:'animation--fadeInLeftToRight',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: hutContainerCard,
+                       elementToAnimate: hutContainerCard.querySelector('[data-animation-id="hut-card-title"]'),
+                       classNameNew:'animation--fadeInLeftToRight',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: hutContainerCard,
+                       elementToAnimate: hutContainerCard.querySelector('[data-animation-id="hut-card-content"]'),
+                       classNameNew:'animation--fadeInUp',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: hutContainerFurnishing,
+                       elementToAnimate: hutContainerFurnishing.querySelector('[data-animation-id="hut-furnishing-title"]'),
+                       classNameNew:'animation--fadeInLeftToRight',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: hutContainerFurnishing,
+                       elementToAnimate: hutContainerFurnishing.querySelector('[data-animation-id="hut-furnishing-content"]'),
+                       classNameNew:'animation--fadeInUp',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: hutContainerGallery,
+                       elementToAnimate: hutContainerGallery.querySelector('[data-animation-id="hut-gallery-title"]'),
+                       classNameNew:'animation--fadeInLeftToRight',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: hutContainerGallery,
+                       elementToAnimate: hutContainerGallery.querySelector('[data-animation-id="hut-gallery-content"]'),
+                       classNameNew:'animation--fadeInUp',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: hutContainerPrice,
+                       elementToAnimate: hutContainerPrice.querySelector('[data-animation-id="hut-price-title"]'),
+                       classNameNew:'animation--fadeInLeftToRight',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: hutContainerPrice,
+                       elementToAnimate: hutContainerPrice.querySelector('[data-animation-id="hut-price-content"]'),
+                       classNameNew:'animation--fadeInUp',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+            })
+        }
+    },
+    mounted(){
+        this.$nextTick(() => {
+        this.$nuxt.$loading.start()
+        setTimeout(() => {
+            this.$nuxt.$loading.finish()
+            if(this.hutPage !== ""){
+                this.runAnimation()
+            }
+        }, 500)
+        })
+    },
+        loading: true
   
 }
 </script>
