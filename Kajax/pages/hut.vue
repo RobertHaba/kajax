@@ -1,5 +1,5 @@
 <template>
-   <div class="container" v-if="hutPage !== ''">
+   <div class="container" v-if="hutPage !== '' & renderComponent" >
        <header class="hut-container hut-container--header" >
             <div class="header-column-text">
                 <div class="header-content-container">
@@ -96,7 +96,7 @@
                             </h3>
                         </div>
                     </div>
-                    <div class="gallery-content">
+                    <div class="gallery-content" id="galleryContent">
                         <div class="gallery-content__column gallery-content__column--big">
                             <picture>
                                 <source media="(min-width: 1150px)" :srcset="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.small.url">
@@ -176,6 +176,7 @@ export default {
             activeGallery:0,
             hutPage:'',
             linkPrefix: 'http://192.168.1.50:1337',
+            renderComponent: true,
         }
     },
     components:{
@@ -187,7 +188,14 @@ export default {
             query: hutQuery
         },
     },
-    
+    watch:{
+        activeGallery(){
+            let imageMainView = document.querySelector('#galleryContent')
+            imageMainView.classList.remove('animation--fadeInUp')
+            imageMainView.offsetWidth
+            imageMainView.classList.add('animation--fadeInUp')
+        }
+    },
     methods: {
     runAnimation(){
             let hutContainerContent1 = document.querySelector('[data-animation-id="hut-container-content-1"]')
