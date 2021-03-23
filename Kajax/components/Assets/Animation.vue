@@ -2,7 +2,6 @@
 export default {
     methods: {
         addAnimation(animation){
-                console.log(animation);
                 if((animation.scrollPosition + window.innerHeight) >= (animation.element.offsetTop + animation.addSpaceFromTop)){
                     animation.elementToAnimate.classList.remove(animation.classNameOld)
                     animation.elementToAnimate.classList.add(animation.classNameNew)
@@ -13,7 +12,6 @@ export default {
                 }
         },
         addAnimationToMoreItems(animation){
-            console.log(animation);
                 if((animation.scrollPosition + window.innerHeight) >= (animation.element.offsetTop + animation.addSpaceFromTop)){
                     animation.elementsToAnimate.forEach(element => {
                         element.classList.remove(animation.classNameOld)

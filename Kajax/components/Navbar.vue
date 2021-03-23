@@ -105,8 +105,16 @@ export default {
         color:#FFF;
     }
     .menu__list-item{
+        font-family: 'Montserrat';
         text-transform: uppercase;
         margin-left: 1rem;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+    .menu__list-item:hover{
+        font-family: 'Montserrat';
+        font-weight: bold;
+        text-decoration: underline;
     }
     .ham{
         display: none;

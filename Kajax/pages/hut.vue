@@ -89,7 +89,7 @@
                 </header>
                 <div class="hut-layout-content hut-layout-content--gallery" data-animation-id="hut-gallery-content">
                     <div class="gallery-header">
-                        <div class="gallery-thumbnails-card" v-for="(thumbnail, index) in hutPage.hutGallery" :key="thumbnail.id" @click="activeGallery = index">
+                        <div class="gallery-thumbnails-card" :class="{'gallery-thumbnails-card--target':index == selected}" v-for="(thumbnail, index) in hutPage.hutGallery" :key="thumbnail.id" @click="activeGallery = index, selected = index">
                             <img :src="linkPrefix + thumbnail.image[0].formats.thumbnail.url" class="gallery-thumbnails-card__img" :alt="thumbnail.image[0].alternativeText">
                             <h3 class="gallery-thumbnails-card__title">
                                 {{thumbnail.title}}
@@ -189,6 +189,7 @@ export default {
             activeGallery:0,
             hutPage:'',
             linkPrefix: 'http://192.168.1.50:1337',
+            selected: 0
         }
     },
     components:{
@@ -561,6 +562,7 @@ export default {
     .content-column--image img{
         width: 100%;
         height: 100%;
+        object-fit:cover;
         border-radius: 15px;
     }
     .content-column__title{
@@ -799,13 +801,18 @@ export default {
         height: 130px;
         margin: 0 1.5rem;
     }
-    .gallery-thumbnails-card--active{
+    .gallery-thumbnails-card--target .gallery-thumbnails-card__title{
         font-weight: bold;
+    }
+    .gallery-thumbnails-card--target .gallery-thumbnails-card__img{
+        transform: scale(0.8);
     }
     .gallery-thumbnails-card__img{
         width: 100%;
         height: 100px;
+        object-fit:cover;
         border-radius: 10px;
+        transition: 0.8s;
     }
     .gallery-thumbnails-card__title{
         margin-top: 0.5rem;
@@ -831,6 +838,7 @@ export default {
     .gallery-image{
         width: 100%;
         height: 100%;
+        object-fit:cover;
         max-height: 220px;
         border-radius: 10px;
     }
