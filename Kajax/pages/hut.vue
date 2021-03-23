@@ -1,5 +1,5 @@
 <template>
-   <div class="container" v-if="hutPage !== '' & renderComponent" >
+   <div class="container" v-if="hutPage !== ''" >
        <header class="hut-container hut-container--header" >
             <div class="header-column-text">
                 <div class="header-content-container">
@@ -21,7 +21,7 @@
             <div class="content-column content-column--left content-column--image" data-animation-id="hut-content-image-1">
                 <picture>
                     <source :srcset="linkPrefix + hutPage.hutPageContent[0].image.formats.small.url" media="(max-width: 1000px)">
-                    <img :src="linkPrefix + hutPage.hutPageContent[0].image.formats.medium.url" alt="">
+                    <img :src="linkPrefix + hutPage.hutPageContent[0].image.formats.medium.url" :alt="hutPage.hutPageContent[0].image.alternativeText">
                 </picture>
             </div>
             <div class="content-column content-column--right" data-animation-id="hut-content-column-1">
@@ -39,7 +39,7 @@
                 </header>
                 <div class="hut-layout-content hut-layout-content--blue" data-animation-id="hut-card-content">
                     <div class="hut-card" v-for="card in hutPage.card" :key="card.id">
-                            <img :src="linkPrefix + card.icon.url" alt="" class="hut-card__img">
+                            <img :src="linkPrefix + card.icon.url" class="hut-card__img" :alt="card.icon.alternativeText">
                             <h3 class="hut-card__title">{{card.title}}</h3>
                             <p class="hut-card__text">{{card.text}}</p>
                     </div>
@@ -90,7 +90,7 @@
                 <div class="hut-layout-content hut-layout-content--gallery" data-animation-id="hut-gallery-content">
                     <div class="gallery-header">
                         <div class="gallery-thumbnails-card" v-for="(thumbnail, index) in hutPage.hutGallery" :key="thumbnail.id" @click="activeGallery = index">
-                            <img :src="linkPrefix + thumbnail.image[0].formats.thumbnail.url" alt="" class="gallery-thumbnails-card__img">
+                            <img :src="linkPrefix + thumbnail.image[0].formats.thumbnail.url" class="gallery-thumbnails-card__img" :alt="thumbnail.image[0].alternativeText">
                             <h3 class="gallery-thumbnails-card__title">
                                 {{thumbnail.title}}
                             </h3>
@@ -101,7 +101,7 @@
                             <picture>
                                 <source media="(min-width: 1150px)" :srcset="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.small.url">
                                 <source media="(min-width: 850px)" :srcset="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.medium.url">
-                                <img class="gallery-image gallery-image--big" :src="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.small.url" alt="">
+                                <img class="gallery-image gallery-image--big" :src="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.small.url" :alt="hutPage.hutGallery[activeGallery].image[0].alternativeText">
                             </picture>
                             <p class="gallery-subtitle">
                                 Zobacz naszą galerię obiektu
@@ -109,7 +109,7 @@
                         </div>
                         <div class="gallery-content__column gallery-content__column--tile">
                             <picture v-for="(galleryImg, index) in hutPage.hutGallery[activeGallery].image" :key="galleryImg.id" v-if="index">
-                                <img class="gallery-image" :src="linkPrefix + galleryImg.formats.small.url" alt="">
+                                <img class="gallery-image" :src="linkPrefix + galleryImg.formats.small.url" :alt="galleryImg.alternativeText">
                             </picture>
                             
                         </div>
@@ -133,7 +133,7 @@
                         </div>
                         <div class="price-card-variants" v-for="priceVariant in priceCard.priceVariants" :key="priceVariant.id">
                             <div class="price-card-variants__img-box">
-                                <img class="card-variants-img" :src="linkPrefix + priceVariant.icon.url" alt="">
+                                <img class="card-variants-img" :src="linkPrefix + priceVariant.icon.url" :alt="priceVariant.icon.alternativeText">
                             </div>
                             <div class="price-card-variants__content">
                                 <h4 class="card-variants-title">{{priceVariant.title}}</h4>
@@ -168,15 +168,27 @@
 <script>
 import Footer from '~/components/Home/Footer'
 import hutQuery from '~/apollo/queries/page/hut'
-import Animation from "~/components/assets/Animation"
+import Animation from "../components/assets/Animation"
 export default {
     name:'hut',
+    head() {
+           return {
+               title: `Domek do wynajęcia nad jeziorem - Wczasy na Kaszubach | Kajax 2021`,
+               meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'Rodzinne wakacje na Kaszubach. Noclegi w dużym domku holenderskim nad jeziorem Lipusz do 6os. Domek do wynajęcia w tygodniu i na weekend! '
+                }
+                ]
+           }
+        
+    },
     data(){
         return{
             activeGallery:0,
             hutPage:'',
             linkPrefix: 'http://192.168.1.50:1337',
-            renderComponent: true,
         }
     },
     components:{
@@ -337,6 +349,7 @@ export default {
 <style scoped>
 .container{
         overflow-x: hidden;
+        font-family: 'Montserrat';
 }
     .hut-container{
         position: relative;
