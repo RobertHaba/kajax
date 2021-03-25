@@ -36,9 +36,9 @@
       "type": "component",
       "repeatable": true,
       "component": "hut-page-content.hut-page-content",
-      "max": 3,
+      "max": 2,
       "required": true,
-      "min": 2
+      "min": 1
     },
     "card": {
       "type": "component",

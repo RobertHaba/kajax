@@ -23,11 +23,11 @@
     },
     "capacity": {
       "type": "integer",
-      "required": true
+      "required": false
     },
     "equipment": {
       "type": "string",
-      "required": true,
+      "required": false,
       "maxLength": 80
     },
     "image": {
