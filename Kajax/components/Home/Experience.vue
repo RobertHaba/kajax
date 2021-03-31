@@ -3,13 +3,13 @@
         <div class="experience-layout">
             <div class="experience-header">
                 <h2 class="title">Dlaczego warto spływać z nami?</h2>
-                <a href="tel:+48696599556" class="button">Zadzwoń <span>999-999-999</span></a>
+                <a href="tel:+48696599556" class="button" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń <span>999-999-999</span></a>
             </div>
             <div class="experience-carousel-container">
                 <div class="experience-carousele-wrapper" data-animation-id="experience-wrapper">
                     <div class="experience-carousele-item" v-for="experience in experiences" :key="experience.title">
                         <div class="experience-carousele-icon">
-                            <img :src='linkPrefix+experience.image.url' alt="">
+                            <img :src='linkPrefix+experience.image.url' :alt="experience.image.alternativeText">
                         </div>
                         <div class="experience-carousele-content">
                             <h3 class="experience-carousele-content-title">{{experience.title}}</h3>
@@ -82,7 +82,16 @@ export default {
     width: 190px;
     height: 50px;
     background: #005492;
+    font-weight:normal;
     color:#FFF;
+}
+.button:hover{
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    border:1px solid #005492;
+    background-color: #FFF;
+    font-weight: bold;
+    color:#005492;
+
 }
 .button span{
     font-size: 0.7rem;

@@ -8,7 +8,7 @@
             <div class="road-container">
                     <ul class="road-list">
                         <li class="road-list__item" v-for="road in roads" :key="road.id">
-                            <button class="road-list-button" v-on:click="roadContent = road; buttonFocus($event); runAnimationOnClick()" v-bind:class="{ 'road-list-button--target' : road.id == 1}">
+                            <button class="road-list-button" v-on:click="roadContent = road; buttonFocus($event); runAnimationOnClick()" v-bind:class="{ 'road-list-button--target' : road.id == 1}" :title="'Kliknij, aby zobaczyć podgląd dla ' + road.title" :aria-label="'Kliknij, aby zobaczyć podgląd dla' + road.title">
                                 <h3 class="road-list-title">{{road.title}}</h3>
                                 <p class="road-list-description"> {{road.subtitle}}</p>
                             </button>
@@ -41,7 +41,7 @@
                                         </li>
                                     </ul>
                                     <div class="road-view-content__image">
-                                        <img :src="linkPrefix + roadContent.road_map.formats.thumbnail.url" alt="">
+                                        <img :src="linkPrefix + roadContent.road_map.formats.thumbnail.url" :alt="roadContent.road_map.alternativeText">
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="road-view-box__tile">
                                     <picture> 
-                                        <img :src="linkPrefix + img.image.formats.small.url" alt="">
+                                        <img :src="linkPrefix + img.image.formats.small.url" :alt="img.image.alternativeText">
                                     </picture>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                     
             </div>
             <div class="road-footer">
-                <nuxt-link :to="`road/${roadContent.title}-${roadContent.id}`" class="road-footer__link" >Zobacz opis trasy</nuxt-link>
+                <nuxt-link :to="`road/${roadContent.title}-${roadContent.id}`" class="road-footer__link" :title="'Kliknij, aby przejść do strony ' + roadContent.title" :aria-label="'Kliknij, aby przejść do strony ' + roadContent.title">Zobacz opis trasy</nuxt-link>
             </div>
       </div>
   </section>
@@ -208,8 +208,15 @@ export default {
     display: flex;
     flex-direction: column;
 }
+.road-list-button:hover{
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    font-weight: bold;
+}
 .road-list-button:focus{
     outline: none;
+    font-size: 1rem;
+    font-weight: bold;
+
 }
 .road-list-button--target{
     font-size: 1.1rem;
@@ -323,6 +330,13 @@ export default {
     border:1px solid #FFF;
     border-radius: 10px;
     text-transform: uppercase;
+}
+.road-footer__link:hover{
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    border:1px solid #FFF;
+    background-color: #FFF;
+    color:#005492;
+
 }
 @media screen and (max-width:1000px) {
     .container{

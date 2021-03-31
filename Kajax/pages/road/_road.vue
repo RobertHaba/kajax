@@ -8,11 +8,11 @@
                         <p class="road-header-lead">
                             {{roads[this.roadsID].description_site}}
                         </p>
-                        <a href="tel:696599556" class="road-header-button">Zadzwoń</a>
+                        <a href="tel:696599556" class="road-header-button" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń</a>
                 </div>
             </div>
             <div class="road-header__column-image">
-                    <img class="header-image" :src="linkPrefix + roads[this.roadsID].roads_content[0].image.formats.large.url" alt="">
+                    <img class="header-image" :src="linkPrefix + roads[this.roadsID].roads_content[0].image.formats.large.url" :alt="roads[this.roadsID].roads_content[0].image.alternativeText">
             </div>
         </header>
         <section class="road-container" data-animation-id="road-content-1">
@@ -23,7 +23,7 @@
             </header>
             <div class="road-content-column road-content-column--card road-content-column--green" data-animation-id="road-box-1">
                <div class="road-content-card road-content-card--center road-content-card--green">
-                   <img :src="linkPrefix + roads[this.roadsID].road_map.url" alt="">
+                   <img :src="linkPrefix + roads[this.roadsID].road_map.url" alt="Mapa">
                </div>
                <div class="road-content-card">
                    <h3 class="road-content-card-title">{{roads[this.roadsID].road_price[0].title}}</h3>
@@ -81,10 +81,10 @@
                </div>
                <div class="road-carousel">
                    <div class="road-content-carousel">
-                        <div class="road-content-carousel-box" v-for="(contentImage, index) in roads[this.roadsID].roads_content" :key="contentImage.id" @click="activeGalleryImageId = index">
+                        <button class="road-content-carousel-box" v-for="(contentImage, index) in roads[this.roadsID].roads_content" :key="contentImage.id" @click="activeGalleryImageId = index">
                                 <img class="gallery-image" :src="linkPrefix + contentImage.image.formats.thumbnail.url" :alt="contentImage.image.alternativeText">
                             
-                        </div>
+                        </button>
                     </div>
                </div>
             </div>
@@ -292,8 +292,17 @@ export default {
     }
     .road-header-button{
         padding: 0.5rem 2rem;
-        border:1px solid #000;
+        background: #005492;
+        font-weight:normal;
+        color:#FFF;
         border-radius: 2rem;
+    }
+    .road-header-button:hover{
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    border:1px solid #005492;
+    background-color: #FFF;
+    color:#005492;
+
     }
     .road-header__column-image{
         position: absolute;

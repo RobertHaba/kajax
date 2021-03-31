@@ -10,24 +10,24 @@
                     </p>
             </div>
             <ul class="list-hut-info" v-for="hutContent in huts[0].hutContentMainSite" v-bind:key="hutContent.id">
-                    <li class="list-hut-info__item"><span class="hut-info-icon"><img :src="linkPrefix + hutContent.icon.url" alt=""></span><p>{{hutContent.description}}</p></li>
+                    <li class="list-hut-info__item"><span class="hut-info-icon"><img :src="linkPrefix + hutContent.icon.url" :alt="hutContent.icon.alternativeText"></span><p>{{hutContent.description}}</p></li>
             </ul>
             <div class="column-footer">
-                <nuxt-link to="/hut" class="column-footer-button">Zobacz ofertę</nuxt-link>
+                <nuxt-link to="/hut" class="column-footer-button" title="Kliknij, aby przejśc do strony z domkiem" aria-label="Kliknij, aby przejść do strony z domkiem">Zobacz ofertę</nuxt-link>
             </div>
       </div>
       <div class="column column--image" data-animation-id="hut-image">
           <div class="hut-box hut-box--big">
               <picture class="hut-image hut-image--big">
-                  <img :src="linkPrefix+huts[0].imagesMainSite[0].formats.small.url" alt="">
+                  <img :src="linkPrefix+huts[0].imagesMainSite[0].formats.small.url" :alt="huts[0].imagesMainSite[0].alternativeText">
               </picture>
           </div>
           <div class="hut-box hut-box--small">
               <picture class="hut-image hut-image--small">
-                  <img :src="linkPrefix+huts[0].imagesMainSite[1].formats.small.url" alt="">
+                  <img :src="linkPrefix+huts[0].imagesMainSite[1].formats.small.url" :alt="huts[0].imagesMainSite[1].alternativeText">
               </picture>
               <picture class="hut-image hut-image--small">
-                  <img :src="linkPrefix+huts[0].imagesMainSite[2].formats.small.url" alt="">
+                  <img :src="linkPrefix+huts[0].imagesMainSite[2].formats.small.url" :alt="huts[0].imagesMainSite[2].alternativeText">
               </picture>
           </div>
       </div>
@@ -116,10 +116,18 @@ export default {
     width: 100%;
     max-width: 280px;
     background-color: #005492;
+    border:1px solid #005492;
     color:#FFF;
     font-weight: bold;
     font-size: 0.9rem;
     border-radius: 15px;
+}
+.column-footer-button:hover{
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    border:1px solid #005492;
+    background-color: #FFF;
+    color:#005492;
+
 }
 .hut-box{
     position: relative;

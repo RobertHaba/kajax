@@ -10,26 +10,26 @@
                         </p>
                     </div>
                     <div class="footer-social">
-                        <div class="footer-social-box">
+                        <a class="footer-social-box" href="https://www.facebook.com/Kajax-Sp%C5%82ywy-kajakowe-342252465837367/" title="Kliknij, aby przejść do naszej strony na Facebooku" aria-label="Kliknij, aby przejść do naszej strony na Facebooku">
                             <div class="footer-social-box-image-container">
-                                <img class="footer-social-box-image-container__image" src="../../assets/facebook.svg" alt="" width="50px" height="50px">
+                                <img class="footer-social-box-image-container__image" src="../../assets/facebook.svg" alt="Ikonka Facebooka" width="50px" height="50px">
                             </div>
-                            <a class="footer-social-box__link" href="https://www.facebook.com/Kajax-Sp%C5%82ywy-kajakowe-342252465837367/">Facebook</a>
-                        </div>
-                        <div class="footer-social-box">
+                            <p class="footer-social-box__link" >Facebook</p>
+                        </a>
+                        <a class="footer-social-box" href="https://goo.gl/maps/xwBYrLZ6YnhoiUVM7" title="Kliknij, aby przejść do naszej strony na Googlu" aria-label="Kliknij, aby przejść do naszej strony na Googlu">
                             <div class="footer-social-box-image-container">
-                                <img class="footer-social-box-image-container__image" src="../../assets/google.svg" alt="" width="50px" height="50px">
+                                <img class="footer-social-box-image-container__image" src="../../assets/google.svg" alt="Ikonka Googla" width="50px" height="50px">
                             </div>
-                            <a class="footer-social-box__link" href="https://goo.gl/maps/xwBYrLZ6YnhoiUVM7">Google</a>
-                        </div>
+                            <p class="footer-social-box__link" >Google</p>
+                        </a>
                     </div>
                     <div class="footer-shortcuts" v-if="roads !== ''">
                         <h3 class="footer-shortcuts-title">Skróty:</h3>
                         <ul class="footer-shortcuts-list">
                             <li class="footer-shortcuts-list__item" v-for="road in roads" :key="road.id">
-                                <nuxt-link :to="`/road/${road.title}-${road.id}`">Trasa kajakowa - {{road.subtitle}}, rzeką {{road.title}}</nuxt-link>
+                                <nuxt-link :to="`/road/${road.title}-${road.id}`" :title="'Kliknij, aby przejść do strony:' + road.subtitle" :aria-label="'Kliknij, aby przejść do strony:' + road.subtitle">Trasa kajakowa - {{road.subtitle}}, rzeką {{road.title}}</nuxt-link>
                             </li>
-                            <li class="footer-shortcuts-list__item"><nuxt-link to="/hut">Domek Holenderski</nuxt-link></li>
+                            <li class="footer-shortcuts-list__item"><nuxt-link to="/hut" title="Kliknij, aby przejść do strony z domkiem" aria-label="Kliknij, aby przejść do strony z domkiem">Domek Holenderski</nuxt-link></li>
                         </ul>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="footer-contact">
                         <ul class="footer-contact-list">
-                            <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Numer telefonu:</h4><p class="footer-contact-list-item-text"><a href="tel:+48696599556">696-599-556</a></p></li>
+                            <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Numer telefonu:</h4><p class="footer-contact-list-item-text footer-contact-list-item-text--link"><a href="tel:+48696599556" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">696-599-556</a></p></li>
                             <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Adres:</h4><p class="footer-contact-list-item-text">Pomorze - Lipusz 83-424, ul. Rogali 9</p></li>
                         </ul>
                     
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="footer-copyright">
-            <p class="copyright-text">Copyright © siteman.com dla kajakinakaszubach.pl 2021</p>
+            <p class="copyright-text">Copyright © <a href="https://www.siteman.com" title="Kliknij, aby przejść do strony twórcy - siteman.com" aria-label="Kliknij, aby przejść do strony twórcy - Siteman.com">siteman.com</a> dla kajakinakaszubach.pl 2021</p>
         </div>
     </footer>
 </template>
@@ -130,6 +130,12 @@ export default {
     width: 50px;
     background-color: #FFF;
     border-radius: 100px;
+    border:1px solid #FFF;
+}
+.footer-social-box:hover .footer-social-box-image-container{
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: #005492;
+    border:1px solid #FFF;
 }
 .footer-social-box-image-container__image{
     width: 100%;
@@ -140,6 +146,12 @@ export default {
 .footer-social-box__link{
     margin-top: 0.5rem;
     font-size: 0.9rem;
+}
+.footer-social-box:hover .footer-social-box__link{
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    font-weight: bold;
+    color:#FFF;
+
 }
 .footer-shortcuts-title{
     margin-bottom: 1rem;
@@ -165,6 +177,11 @@ export default {
     height: 5px;
     background-color: #FFF;
     border-radius: 100%;
+}
+.footer-shortcuts-list__item:hover{
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    font-weight: bold;
+    color:#FFF;
 }
 .footer-map-container{
     width: 100%;
@@ -203,6 +220,16 @@ export default {
     color:#005492;
     background-color: #FFF;
     border-radius: 100px;
+    border:1px solid #FFF;
+}
+.footer-contact-list-item-text--link{
+    cursor: pointer;
+}
+.footer-contact-list-item-text--link:hover{
+    transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    border:1px solid #FFF;
+    color:#FFF;
+    background-color: #005492;
 }
 .footer-copyright{
     display: flex;
@@ -210,6 +237,12 @@ export default {
     margin-top: 1rem;
     width: 100%;
     max-width: 1300px;
+}
+.copyright-text a:hover{
+    transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    color:#FFF;
+    background-color: #005492;
+
 }
 .copyright-text{
     padding: 0.5rem 2rem;

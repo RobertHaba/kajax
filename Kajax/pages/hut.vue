@@ -7,7 +7,7 @@
                         <p class="hut-header-lead">
                             {{hutPage.subtitleHeader}}
                         </p>
-                        <a href="tel:696599556" class="hut-header-button">Zadzwoń</a>
+                        <a href="tel:696599556" class="hut-header-button" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń</a>
                 </div>
             </div>
             <div class="hut-header__column-image">
@@ -89,12 +89,12 @@
                 </header>
                 <div class="hut-layout-content hut-layout-content--gallery" data-animation-id="hut-gallery-content">
                     <div class="gallery-header">
-                        <div class="gallery-thumbnails-card" :class="{'gallery-thumbnails-card--target':index == selected}" v-for="(thumbnail, index) in hutPage.hutGallery" :key="thumbnail.id" @click="activeGallery = index, selected = index">
+                        <button class="gallery-thumbnails-card" :class="{'gallery-thumbnails-card--target':index == selected}" v-for="(thumbnail, index) in hutPage.hutGallery" :key="thumbnail.id" @click="activeGallery = index, selected = index" :title="'Kliknij, aby zobaczyć zdjęcia z galerii ' +thumbnail.title" :aria-label="'Kliknij, aby zobaczyć zdjęcia z galerii ' +thumbnail.title">
                             <img :src="linkPrefix + thumbnail.image[0].formats.thumbnail.url" class="gallery-thumbnails-card__img" :alt="thumbnail.image[0].alternativeText">
                             <h3 class="gallery-thumbnails-card__title">
                                 {{thumbnail.title}}
                             </h3>
-                        </div>
+                        </button>
                     </div>
                     <div class="gallery-content" id="galleryContent">
                         <div class="gallery-content__column gallery-content__column--big">
@@ -148,7 +148,7 @@
                                 </p>
                             </div>
                         </div>
-                            <a class="price-button" href="tel:+48696599556">Zadzwoń</a>
+                            <a class="price-button" href="tel:+48696599556" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń</a>
                     </div>
                 </div>
                     <div class="additional-information" v-if="hutPage.additionalInformation">
@@ -480,8 +480,17 @@ export default {
     }
     .hut-header-button{
         padding: 0.5rem 2rem;
-        border:1px solid #000;
+        background: #005492;
+        font-weight:normal;
+        color:#FFF;
         border-radius: 2rem;
+    }
+    .hut-header-button:hover{
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    border:1px solid #005492;
+    background-color: #FFF;
+    color:#005492;
+
     }
     .hut-header__column-image{
         position: absolute;
@@ -777,6 +786,14 @@ export default {
         color:#005492;
         border:1px solid #005492;
     }
+    .price-button:hover{
+        transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+        border:1px solid #005492;
+        background-color: #005492;
+        font-weight: bold;
+        color:#FFF;
+
+    }
     /* Additional */
     .additional-information{
         margin-top: 5rem;
@@ -800,6 +817,10 @@ export default {
         max-width: 180px;
         height: 130px;
         margin: 0 1.5rem;
+    }
+    .gallery-thumbnails-card:hover .gallery-thumbnails-card__img{
+        transform: scale(0.9);
+
     }
     .gallery-thumbnails-card--target .gallery-thumbnails-card__title{
         font-weight: bold;

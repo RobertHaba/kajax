@@ -6,7 +6,7 @@
                 <p class="home-header-lead">
                     {{headers[0].Text}}
                 </p>
-                <a href="tel:696599556" class="home-header-button">Zadzwoń</a>
+                <a href="tel:696599556" class="home-header-button" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń</a>
           </div>
       </div>
       <div class="home-header__column-image">
@@ -108,10 +108,19 @@ export default {
     }
     .home-header-button{
         padding: 0.5rem 2rem;
-        border:1px solid #000;
-        border-color: #000;
+        border:1px solid #005492;
+        background-color: #005492;
+        color:#FFF;
         transition: 1s ease border-color;
+        font-weight: bold;
         border-radius: 2rem;
+    }
+    .home-header-button:hover{
+        transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+        border:1px solid #005492;
+        background-color: #FFF;
+        color:#005492;
+
     }
     .home-header__column-image{
         position: absolute;
