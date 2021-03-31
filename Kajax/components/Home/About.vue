@@ -30,12 +30,12 @@
 </template>
 
 <script>
-import aboutsQuery from "~/apollo/queries/home/about"
+import aboutsQuery from "../../apollo/queries/home/about"
 export default {
     data(){
         return{
             abouts:'',
-            linkPrefix: 'http://192.168.1.50:1337'
+            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net'
         }
     },
     apollo:{

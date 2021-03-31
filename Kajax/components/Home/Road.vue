@@ -69,13 +69,13 @@
 </template>
 
 <script>
-import roadsQuery from "~/apollo/queries/home/road"
+import roadsQuery from "../../apollo/queries/home/road"
 export default {
     data(){
         return{
             roads:'',
             roadContent:'',
-            linkPrefix: 'http://192.168.1.50:1337'
+            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net'
         }
     },
     apollo:{

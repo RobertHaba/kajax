@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import roadFooter from '~/apollo/queries/home/road-footer'
+import roadFooter from '../../apollo/queries/home/road-footer'
 export default {
     data(){
         return{

@@ -25,12 +25,12 @@
 </template>
 
 <script>
-import experienceQuery from '~/apollo/queries/home/experience'
+import experienceQuery from '../../apollo/queries/home/experience'
 export default {
     data(){
         return{
             experiences:[],
-            linkPrefix: 'http://192.168.1.50:1337'
+            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net'
         }
     },
     apollo:{

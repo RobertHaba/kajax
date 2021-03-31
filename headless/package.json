@@ -7,22 +7,24 @@
         "develop": "strapi develop",
         "start": "strapi start",
         "build": "strapi build",
-        "strapi": "strapi"
+        "strapi": "strapi",
+        "production": "cross-env NODE_ENV=production npm run build"
     },
     "devDependencies": {},
     "dependencies": {
+        "cross-env": "^7.0.3",
         "knex": "<0.20.0",
         "sqlite3": "5.0.0",
-        "strapi": "3.5.3",
-        "strapi-admin": "3.5.3",
-        "strapi-connector-bookshelf": "3.5.3",
-        "strapi-plugin-content-manager": "3.5.3",
-        "strapi-plugin-content-type-builder": "3.5.3",
-        "strapi-plugin-email": "3.5.3",
-        "strapi-plugin-graphql": "3.5.3",
-        "strapi-plugin-upload": "3.5.3",
-        "strapi-plugin-users-permissions": "3.5.3",
-        "strapi-utils": "3.5.3"
+        "strapi": "3.5.4",
+        "strapi-admin": "3.5.4",
+        "strapi-connector-bookshelf": "3.5.4",
+        "strapi-plugin-content-manager": "3.5.4",
+        "strapi-plugin-content-type-builder": "3.5.4",
+        "strapi-plugin-email": "3.5.4",
+        "strapi-plugin-graphql": "3.5.4",
+        "strapi-plugin-upload": "3.5.4",
+        "strapi-plugin-users-permissions": "3.5.4",
+        "strapi-utils": "3.5.4"
     },
     "author": {
         "name": "A Strapi developer"

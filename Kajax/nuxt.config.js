@@ -1,7 +1,8 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   server: {
-    host: '192.168.1.50' // default: localhost
+    host: '192.168.1.50', // default: localhost,
+    port: '80'
   },
   head: {
     title: 'Kajax',
@@ -49,7 +50,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.BACKEND_URL || "http://192.168.1.50:1337/graphql" ,
+        httpEndpoint: process.env.BACKEND_URL || "https://kajaxadmin.haba-test.usermd.net/graphql" ,
       }
     }
   },

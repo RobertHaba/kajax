@@ -53,13 +53,13 @@
 </template>
 
 <script>
-import equimpentQuery from '~/apollo/queries/home/equipment'
+import equimpentQuery from '../../apollo/queries/home/equipment'
 export default {
     data(){
         return{
             accessories: '',
             mainAccesories:'',
-            linkPrefix: 'http://192.168.1.50:1337',
+            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net',
             selected:''
             
         }

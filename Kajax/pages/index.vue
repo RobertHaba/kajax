@@ -20,7 +20,7 @@ import Equipment from '../components/Home/Equipment'
 import Experience from '../components/Home/Experience'
 import Hut from '../components/Home/Hut'
 import Footer from '../components/Home/Footer'
-import Animation from "~/components/assets/Animation"
+import Animation from "../components/assets/Animation"
 export default {
     head: {
     title: 'Spływy kajakowe kaszuby, kajakiem przez Wdę, Zbyrzyce | Kajax Lipusz',

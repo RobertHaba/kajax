@@ -35,12 +35,12 @@
 </template>
 
 <script>
-import hutQuery from '~/apollo/queries/home/hut'
+import hutQuery from '../../apollo/queries/home/hut'
 export default {
     data(){
         return{
             huts:'',
-            linkPrefix: 'http://192.168.1.50:1337'
+            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net'
         }
     },
     apollo:{

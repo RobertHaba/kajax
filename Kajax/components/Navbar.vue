@@ -1,6 +1,6 @@
 <template>
   <div class="navbar" id="navbar">
-      <a href="/" class="navbar-logo">
+      <a href="/" class="navbar-logo"  title="Kliknij, aby przejść do strony głównej" aria-label="Kliknij, aby przejść do strony głównej">
           <img src="../assets/logo.png" alt="Logo Kajaki Na Kaszubach - Kajax" class="navbar-logo__img">
           <h1 class="navbar-logo__title">KAJAX - Kajaki na kaszubach</h1>
       </a> 
@@ -8,10 +8,10 @@
       <label class="ham-menu-icon" for="menu-btn"></label>
       <nav class="nav">
           <ul class="menu">
-              <li class="menu__list-item"><a href="/#road">Spływy</a> </li>
-              <li class="menu__list-item"><a href="/#wypozyczalnia">Wypożyczalnia</a> </li>
-              <li class="menu__list-item"><nuxt-link to="/hut">Domki</nuxt-link> </li>
-              <li class="menu__list-item"><a href="/#kontakt">Kontakt</a> </li>
+              <li class="menu__list-item"><a href="/#road" title="Kliknij, aby zjechać do zakładki spływy" aria-label="Kliknij, aby zjechać do zakładki spływy">Spływy</a> </li>
+              <li class="menu__list-item"><a href="/#wypozyczalnia" title="Kliknij, aby zjechać do zakładki wypożyczalnia" aria-label="Kliknij, aby zjechać do zakładki wypożyczalnia">Wypożyczalnia</a> </li>
+              <li class="menu__list-item"><nuxt-link to="/hut" title="Kliknij, aby przejść do strony z domkiem" aria-label="Kliknij, aby przejść do strony z domkiem">Domki</nuxt-link> </li>
+              <li class="menu__list-item"><a href="/#kontakt" title="Kliknij, aby zjechać do zakładki kontakt" aria-label="Kliknij, aby zjechać do zakładki kontakt">Kontakt</a> </li>
           </ul>
       </nav>
   </div>

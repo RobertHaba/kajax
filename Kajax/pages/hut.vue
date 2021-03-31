@@ -166,8 +166,8 @@
 </template>
 
 <script>
-import Footer from '~/components/Home/Footer'
-import hutQuery from '~/apollo/queries/page/hut'
+import Footer from '../components/Home/Footer'
+import hutQuery from '../apollo/queries/page/hut'
 import Animation from "../components/assets/Animation"
 export default {
     name:'hut',
@@ -188,7 +188,7 @@ export default {
         return{
             activeGallery:0,
             hutPage:'',
-            linkPrefix: 'http://192.168.1.50:1337',
+            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net',
             selected: 0
         }
     },

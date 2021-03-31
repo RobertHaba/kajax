@@ -105,9 +105,9 @@
 </template>
 
 <script>
-import roadsQuery from "~/apollo/queries/road/road"
-import Footer from '~/components/Home/Footer'
-import Animation from "~/components/assets/Animation"
+import roadsQuery from "../../apollo/queries/road/road"
+import Footer from '../../components/Home/Footer'
+import Animation from "../../components/assets/Animation"
 export default { 
     head() {
            return {
@@ -137,7 +137,7 @@ export default {
                 ],
             roadsID:'0',
             activeGalleryImageId:0,
-            linkPrefix: 'http://192.168.1.50:1337'
+            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net'
         }
     },
     apollo:{
