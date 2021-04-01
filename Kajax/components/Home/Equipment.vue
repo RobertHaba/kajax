@@ -59,7 +59,7 @@ export default {
         return{
             accessories: '',
             mainAccesories:'',
-            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net',
+            linkPrefix: 'https://kajaxadmin.haba.usermd.net',
             selected:''
             
         }

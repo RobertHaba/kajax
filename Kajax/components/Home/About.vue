@@ -35,7 +35,7 @@ export default {
     data(){
         return{
             abouts:'',
-            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net'
+            linkPrefix: 'https://kajaxadmin.haba.usermd.net'
         }
     },
     apollo:{

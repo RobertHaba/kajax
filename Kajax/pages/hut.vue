@@ -188,7 +188,7 @@ export default {
         return{
             activeGallery:0,
             hutPage:'',
-            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net',
+            linkPrefix: 'https://kajaxadmin.haba.usermd.net',
             selected: 0
         }
     },

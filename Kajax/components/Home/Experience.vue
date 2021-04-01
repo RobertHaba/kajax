@@ -30,7 +30,7 @@ export default {
     data(){
         return{
             experiences:[],
-            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net'
+            linkPrefix: 'https://kajaxadmin.haba.usermd.net'
         }
     },
     apollo:{

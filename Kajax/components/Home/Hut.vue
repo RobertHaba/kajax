@@ -40,7 +40,7 @@ export default {
     data(){
         return{
             huts:'',
-            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net'
+            linkPrefix: 'https://kajaxadmin.haba.usermd.net'
         }
     },
     apollo:{

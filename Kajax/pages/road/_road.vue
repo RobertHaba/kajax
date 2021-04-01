@@ -16,11 +16,11 @@
             </div>
         </header>
         <section class="road-container" data-animation-id="road-content-1">
-            <header class="road-content-column road-content-column--text-left" data-animation-id="road-text-1">
+            <div class="road-content-column road-content-column--text-left" data-animation-id="road-text-1">
                 <h2 class="road-content-title">{{roads[this.roadsID].road_content_site[0].title}}</h2>
                 <div class="road-content-text" v-html="$md.render(roads[this.roadsID].road_content_site[0].content)">
                 </div>
-            </header>
+            </div>
             <div class="road-content-column road-content-column--card road-content-column--green" data-animation-id="road-box-1">
                <div class="road-content-card road-content-card--center road-content-card--green">
                    <img :src="linkPrefix + roads[this.roadsID].road_map.url" alt="Mapa">
@@ -88,16 +88,10 @@
                     </div>
                </div>
             </div>
-            <div class="road-content-column road-content-column--text-right" data-animation-id="road-text-2">
-                <h2 class="road-content-title">Dodatkowe informacje odnośnie spływów</h2>
-                <p class="road-content-text">Rzeka Zbrzyca znajduje się na terenie Zaborskiego Parku Krajobrazowego. Zbrzyca ma wiele szlaków kajakowych ale najbardziej malowniczym i najczęściej odwiedzanym przez naszych klientów jest odcinek Leśno-Swornegacie. Jest on dobrze oznakowany dlatego też przepłynięcie tej trasy nie powinno stwarzać żadnych problemów.
-                </p>
-                <p class="road-content-text">Rzeka Zbrzyca znajduje się na terenie Zaborskiego Parku Krajobrazowego. Zbrzyca ma wiele szlaków kajakowych ale najbardziej malowniczym i najczęściej odwiedzanym przez naszych klientów jest odcinek Leśno-Swornegacie. Jest on dobrze oznakowany dlatego też przepłynięcie tej trasy nie powinno stwarzać żadnych problemów.
-                </p>
-                <p class="road-content-text">Rzeka Zbrzyca znajduje się na terenie Zaborskiego Parku Krajobrazowego. Zbrzyca ma wiele szlaków kajakowych ale najbardziej malowniczym i najczęściej odwiedzanym przez naszych klientów jest odcinek Leśno-Swornegacie. Jest on dobrze oznakowany dlatego też przepłynięcie tej trasy nie powinno stwarzać żadnych problemów.
-                </p>
-                <p class="road-content-text">Rzeka Zbrzyca znajduje się na terenie Zaborskiego Parku Krajobrazowego. Zbrzyca ma wiele szlaków kajakowych ale najbardziej malowniczym i najczęściej odwiedzanym przez naszych klientów jest odcinek Leśno-Swornegacie. Jest on dobrze oznakowany dlatego też przepłynięcie tej trasy nie powinno stwarzać żadnych problemów.
-                </p>
+            <div class="road-content-column road-content-column--text-right" data-animation-id="road-text-2" v-if="roads[this.roadsID].road_content_site[1]">
+                <h2 class="road-content-title">{{roads[this.roadsID].road_content_site[1].title}}</h2>
+                <div class="road-content-text" v-html="$md.render(roads[this.roadsID].road_content_site[1].content)">
+                </div>
             </div>
         </section>
         <Footer />
@@ -137,7 +131,7 @@ export default {
                 ],
             roadsID:'0',
             activeGalleryImageId:0,
-            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net'
+            linkPrefix: 'https://kajaxadmin.haba.usermd.net'
         }
     },
     apollo:{

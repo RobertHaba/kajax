@@ -40,7 +40,6 @@ export default {
         },
         toggleHamburgerMenu(){
             const navbar = document.querySelector('.nav')
-            const ham = document.querySelector('.ham')
             navbar.classList.toggle("showNav");
         },
     },

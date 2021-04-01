@@ -24,7 +24,7 @@ export default {
         return{
             headers:'',
             imageID:0,
-            linkPrefix: 'https://kajaxadmin.haba-test.usermd.net'
+            linkPrefix: 'https://kajaxadmin.haba.usermd.net'
         }
     },
     apollo: {
@@ -108,7 +108,6 @@ export default {
     }
     .home-header-button{
         padding: 0.5rem 2rem;
-        border:1px solid #005492;
         background-color: #005492;
         color:#FFF;
         transition: 1s ease border-color;

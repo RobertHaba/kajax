@@ -6,7 +6,7 @@
                     <div class="footer-about">
                         <h2 class="footer-about-title">Kajax - Kajaki na kaszubach.</h2>
                         <p class="footer-about-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                            Z nami doznasz niesamowitych emocji na spływie kajakowym! Poznasz najlepsze szlaki wodne na terenie pomorza. Nie czekaj i rezerwuj już dziś!
                         </p>
                     </div>
                     <div class="footer-social">
@@ -42,6 +42,9 @@
                         <ul class="footer-contact-list">
                             <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Numer telefonu:</h4><p class="footer-contact-list-item-text footer-contact-list-item-text--link"><a href="tel:+48696599556" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">696-599-556</a></p></li>
                             <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Adres:</h4><p class="footer-contact-list-item-text">Pomorze - Lipusz 83-424, ul. Rogali 9</p></li>
+                            <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Numer telefonu 2:</h4><p class="footer-contact-list-item-text footer-contact-list-item-text--link"><a href="tel:+48696697256" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">696-697-256</a></p></li>
+                            <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Email:</h4><p class="footer-contact-list-item-text"><a href="mailto:justynakubiszewska@wp.pl" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">justynakubiszewska@wp.pl</a></p></li>
+                        
                         </ul>
                     
                 </div>
