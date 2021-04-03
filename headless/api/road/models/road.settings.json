@@ -80,7 +80,7 @@
     "description_site": {
       "type": "text",
       "required": true,
-      "maxLength": 60
+      "maxLength": 80
     },
     "description": {
       "type": "text",

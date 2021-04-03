@@ -104,18 +104,63 @@ import Footer from '../../components/Home/Footer'
 import Animation from "../../components/assets/Animation"
 export default { 
     head() {
-           return {
-               title: `Spływy kajakowe rzeką ${this.roadsHead[this.roadsID].title.toLowerCase()}, trasa ${this.roadsHead[this.roadsID].subtitle.toLowerCase()}  | Kajax Lipusz`,
-               meta: [
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: this.roadsHead[this.roadsID].description
-                }
-                ]
-           }
+      return{
         
-    },
+    title: `Spływy kajakowe rzeką ${this.roadsHead[this.roadsID].title.toLowerCase()}, trasa ${this.roadsHead[this.roadsID].subtitle.toLowerCase()}  | Kajax Lipusz`,
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: this.roadsHead[this.roadsID].description
+      },
+      {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content:  `Spływy kajakowe rzeką ${this.roadsHead[this.roadsID].title.toLowerCase()}, trasa ${this.roadsHead[this.roadsID].subtitle.toLowerCase()}  | Kajax Lipusz`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.roadsHead[this.roadsID].description
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.image
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content:  `Spływy kajakowe rzeką ${this.roadsHead[this.roadsID].title.toLowerCase()}, trasa ${this.roadsHead[this.roadsID].subtitle.toLowerCase()}  | Kajax Lipusz`
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content:  `Spływy kajakowe rzeką ${this.roadsHead[this.roadsID].title.toLowerCase()}, trasa ${this.roadsHead[this.roadsID].subtitle.toLowerCase()}  | Kajax Lipusz`
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.roadsHead[this.roadsID].description
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.image
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: this.image
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content:  `Spływy kajakowe rzeką ${this.roadsHead[this.roadsID].title.toLowerCase()}, trasa ${this.roadsHead[this.roadsID].subtitle.toLowerCase()}  | Kajax Lipusz`
+        }
+    ],
+      }
+  },
     components:{
         Footer
     },
@@ -131,7 +176,8 @@ export default {
                 ],
             roadsID:'0',
             activeGalleryImageId:0,
-            linkPrefix: 'https://kajaxadmin.haba.usermd.net'
+            linkPrefix: 'https://kajaxadmin.haba.usermd.net',
+            image: 'https://kajakinakaszubach.haba.usermd.net/image/schodno.jpg'
         }
     },
     apollo:{

@@ -22,15 +22,70 @@ import Hut from '../components/Home/Hut'
 import Footer from '../components/Home/Footer'
 import Animation from "../components/assets/Animation"
 export default {
-    head: {
-    title: 'Spływy kajakowe kaszuby, kajakiem przez Wdę, Zbyrzyce | Kajax Lipusz',
+    data(){
+      return{
+        title: 'Spływy kajakowe kaszuby, kajakiem przez Wdę, Zbyrzyce | Kajax Lipusz',
+        description: 'Niezapomniane spływy kajakowe rzeką Wdą i Zbrzyce! Wypożycz nasze kajaki i zwiedź najpopularniejsze kaszubskie szlaki. Noclegi w domku Lipusz',
+        image: 'https://kajakinakaszubach.haba.usermd.net/image/schodno.jpg'
+      }
+    },
+    head() {
+      return{
+        
+    title: this.title,
     meta: [
       {
         hid: 'description',
         name: 'description',
-        content: 'Niezapomniane spływy kajakowe rzeką Wdą i Zbrzyce! Wypożycz nasze kajaki i zwiedź najpopularniejsze kaszubskie szlaki. Noclegi w domku Lipusz'
-      }
+        content: this.description
+      },
+      {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.title
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.description
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.image
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: this.title
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.title
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.description
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.image
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: this.image
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.title
+        }
     ],
+      }
   },
   components:{
     Header,

@@ -172,24 +172,72 @@ import Animation from "../components/assets/Animation"
 export default {
     name:'hut',
     head() {
-           return {
-               title: `Domek do wynajęcia nad jeziorem - Wczasy na Kaszubach | Kajax 2021`,
-               meta: [
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: 'Rodzinne wakacje na Kaszubach. Noclegi w dużym domku holenderskim nad jeziorem Lipusz do 6os. Domek do wynajęcia w tygodniu i na weekend! '
-                }
-                ]
-           }
+      return{
         
-    },
+    title: this.title,
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: this.description
+      },
+      {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.title
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.description
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.image
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: this.title
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.title
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.description
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.image
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: this.image
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.title
+        }
+    ],
+      }
+  },
     data(){
         return{
             activeGallery:0,
             hutPage:'',
             linkPrefix: 'https://kajaxadmin.haba.usermd.net',
-            selected: 0
+            selected: 0,
+            title: `Domek do wynajęcia nad jeziorem - Wczasy na Kaszubach | Kajax 2021`,
+            description: 'Rodzinne wakacje na Kaszubach. Noclegi w dużym domku holenderskim nad jeziorem Lipusz do 6os. Domek do wynajęcia w tygodniu i na weekend! ',
+            image: 'https://kajakinakaszubach.haba.usermd.net/image/schodno.jpg'
         }
     },
     components:{
