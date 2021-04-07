@@ -106,7 +106,7 @@ export default {
     padding: 1rem 0;
     overflow-x: scroll;
     scrollbar-width: thin;
-    scrollbar-color: #2B6651 rgb(192, 192, 192);
+    scrollbar-color: #005492 rgb(192, 192, 192);
 }
 .experience-carousel-container::-webkit-scrollbar {
     height: 12px;

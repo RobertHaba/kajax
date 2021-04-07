@@ -8,6 +8,7 @@
                     <p class="hut-subtitle">
                         Zrelaksuj się przy łonie natury  
                     </p>
+
             </div>
             <ul class="list-hut-info" v-for="hutContent in huts[0].hutContentMainSite" v-bind:key="hutContent.id">
                     <li class="list-hut-info__item"><span class="hut-info-icon"><img :src="linkPrefix + hutContent.icon.url" :alt="hutContent.icon.alternativeText"></span><p>{{hutContent.description}}</p></li>
@@ -74,7 +75,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 7rem;
+    margin-bottom: 3rem;
 }
 .hut-title{
     margin-bottom: 1rem;
@@ -106,7 +107,7 @@ export default {
     height: 100%;
 }
 .column-footer{
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 .column-footer-button{
     display: flex;

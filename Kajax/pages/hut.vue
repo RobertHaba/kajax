@@ -89,12 +89,14 @@
                 </header>
                 <div class="hut-layout-content hut-layout-content--gallery" data-animation-id="hut-gallery-content">
                     <div class="gallery-header">
-                        <button class="gallery-thumbnails-card" :class="{'gallery-thumbnails-card--target':index == selected}" v-for="(thumbnail, index) in hutPage.hutGallery" :key="thumbnail.id" @click="activeGallery = index, selected = index" :title="'Kliknij, aby zobaczyć zdjęcia z galerii ' +thumbnail.title" :aria-label="'Kliknij, aby zobaczyć zdjęcia z galerii ' +thumbnail.title">
-                            <img :src="linkPrefix + thumbnail.image[0].formats.thumbnail.url" class="gallery-thumbnails-card__img" :alt="thumbnail.image[0].alternativeText">
-                            <h3 class="gallery-thumbnails-card__title">
-                                {{thumbnail.title}}
-                            </h3>
-                        </button>
+                        <div class="gallery-header__wrapper">
+                            <button class="gallery-thumbnails-card" :class="{'gallery-thumbnails-card--target':index == selected}" v-for="(thumbnail, index) in hutPage.hutGallery" :key="thumbnail.id" @click="activeGallery = index, selected = index" :title="'Kliknij, aby zobaczyć zdjęcia z galerii ' +thumbnail.title" :aria-label="'Kliknij, aby zobaczyć zdjęcia z galerii ' +thumbnail.title">
+                                <img :src="linkPrefix + thumbnail.image[0].formats.thumbnail.url" class="gallery-thumbnails-card__img" :alt="thumbnail.image[0].alternativeText">
+                                <h3 class="gallery-thumbnails-card__title">
+                                    {{thumbnail.title}}
+                                </h3>
+                            </button>
+                        </div>
                     </div>
                     <div class="gallery-content" id="galleryContent">
                         <div class="gallery-content__column gallery-content__column--big">
@@ -857,12 +859,34 @@ export default {
     }
     /* Gallery */
     .gallery-header{
-        display: flex;
+        position: relative;
+        max-width: 100%;
+        padding-bottom: 1rem;
         margin-bottom: 3rem;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #005492 rgb(192, 192, 192);
+    }
+    .gallery-header::-webkit-scrollbar {
+        height: 12px;
+    }
+
+    .gallery-header::-webkit-scrollbar-track {
+    background: rgb(192, 192, 192);
+    border-radius: 20px;
+    }
+
+    .gallery-header::-webkit-scrollbar-thumb {
+    background-color: #005492;
+    border-radius: 20px;
+    }
+    .gallery-header__wrapper{
+        position: relative;
+        display: flex;
     }
     .gallery-thumbnails-card{
-        width:100%;
-        max-width: 180px;
+        min-width: 180px;
+        width: 180px;
         height: 130px;
         margin: 0 1.5rem;
     }
@@ -903,7 +927,9 @@ export default {
         grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
         grid-gap: 1rem;
     }
-    
+    .gallery-content__column--tile .gallery-image{
+        max-height: 600px;
+    }
     .gallery-image{
         width: 100%;
         height: 100%;
@@ -934,7 +960,8 @@ export default {
             margin-bottom: 1rem;
         }
         .gallery-thumbnails-card{
-            max-width: 70px;
+            min-width: 70px;
+            width: 70px;
             height: 100px;
             margin: 0.5rem;
 

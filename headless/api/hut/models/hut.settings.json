@@ -14,7 +14,8 @@
     "hutContentMainSite": {
       "type": "component",
       "repeatable": true,
-      "component": "hut-content-main-side.hut-content-main-side"
+      "component": "hut-content-main-side.hut-content-main-side",
+      "max": 5
     },
     "imagesMainSite": {
       "collection": "file",
