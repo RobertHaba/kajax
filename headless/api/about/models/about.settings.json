@@ -29,6 +29,10 @@
       ],
       "plugin": "upload",
       "required": true
+    },
+    "shortTitle": {
+      "type": "string",
+      "maxLength": 8
     }
   }
 }

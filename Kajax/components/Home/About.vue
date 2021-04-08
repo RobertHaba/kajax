@@ -1,29 +1,31 @@
 <template>
   <section class="about" v-if="abouts !== ''">
-      <div class="column-image" >
+      <div class="column-image">
         <div class="row-image">
             <div class="tile tile--main">
-                <h3 class="tile-title">O nas</h3>
+                <h3 class="tile-title">
+                {{abouts[postId].shortTitle}}
+                </h3>
             </div>
-            <div class="tile" id="about-tile-image-small">
-                <img :src="linkPrefix + abouts[0].image[0].formats.small.url" :alt="abouts[0].image[0].alternativeText">
+            <div class="tile" :id="'about-tile-image-small-'+postId">
+                <img :src="linkPrefix + abouts[postId].image[0].formats.small.url" :alt="abouts[postId].image[0].alternativeText">
             </div>
         </div>
         <div class="row-image">
-            <div class="tile tile--big" id="about-tile-image-big">
-                <img :src="linkPrefix + abouts[0].image[1].formats.small.url" :alt="abouts[0].image[1].alternativeText">
+            <div class="tile tile--big" :id="'about-tile-image-big-'+postId">
+                <img :src="linkPrefix + abouts[postId].image[1].formats.small.url" :alt="abouts[postId].image[1].alternativeText">
             </div>
         </div>
       </div>
-      <div class="column-description" id="aboutDescription">
+      <div class="column-description" :id="'aboutDescription-'+postId">
           <div class="about-dot">
               <div class='dot'>
 
               </div>
           </div>
           <div class="about-text-box">
-              <h2 class="about-title">{{abouts[0].title}}</h2>
-              <p class="about-description">{{abouts[0].text}}</p>
+              <h2 class="about-title">{{abouts[postId].title}}</h2>
+              <p class="about-description">{{abouts[postId].text}}</p>
           </div>
       </div>
   </section>
@@ -32,6 +34,7 @@
 <script>
 import aboutsQuery from "../../apollo/queries/home/about"
 export default {
+    props:['postId'],
     data(){
         return{
             abouts:'',
@@ -85,7 +88,7 @@ export default {
     align-items: flex-end;
     justify-content: center;
     margin-right: 0.5rem;
-    background-color: #4581B8;
+    background-color: #005492;
 }
 .tile-title{
     margin-bottom: 2rem;
@@ -149,7 +152,7 @@ export default {
     top:100px;
     width: 6px;
     height: 6px;
-    background-color: #4581B8;
+    background-color: #005492;
     border-radius: 100%;
 }
 .about-title{

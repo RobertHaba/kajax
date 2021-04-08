@@ -1,6 +1,7 @@
 query abouts {
   abouts {
     title
+    shortTitle
     text
     image{
       formats

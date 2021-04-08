@@ -137,7 +137,7 @@ export default {
         background: #005492;
         width: 100vw;
         height: 50vh;
-        box-shadow: 0 0 4px 2px #007ad1;
+        box-shadow: 0 0 4px 2px #005492;
         overflow: hidden;
         color: white;
         /* hide the menu above the screen by default */

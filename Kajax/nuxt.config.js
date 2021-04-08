@@ -35,11 +35,14 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
   ],
-
+  serverMiddleware: [
+    '~/headers.js'
+  ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/apollo',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    '@nuxtjs/sitemap'
   ],
   markdownit: {
     preset: 'default',
@@ -64,5 +67,14 @@ export default {
   loading: {
     color: 'blue',
     height: '5px'
-  }
+  },
+  sitemap: {
+    hostname: process.env.BASE_URL,
+    routes:[
+      '/road/WDA-1',
+      '/road/ZBRZYCA-2',
+      '/road/Słupia-3',
+
+    ]
+  },
 }

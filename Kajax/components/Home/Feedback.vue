@@ -101,7 +101,7 @@ export default {
   justify-content: flex-end;
   width: 200px;
   height: 250px;
-  background: #4581B8;
+  background: #005492;
   color: #FFF;
 }
 .feedback-main-title{
@@ -153,7 +153,7 @@ export default {
 .feedback-card-footer{
   padding-top: 1rem;
   border-top: 1px solid #E0E0E0;
-  color: #4581B8;
+  color: #005492;
 }
 @media screen and (max-width:1300px) {
   .feedback-header{

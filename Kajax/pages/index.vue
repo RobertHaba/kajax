@@ -1,10 +1,11 @@
 <template>
   <div class="container">
     <Header />
-    <About />
+    <About postId="0"/>
     <Road />
     <Feedback />
     <Equipment />
+    <About postId="1"/>
     <Experience />
     <Hut />
     <Footer />
@@ -100,9 +101,12 @@ export default {
   },
     methods: {
         runAnimation(){
-            let imageColumn = document.querySelector('#about-tile-image-small')
-            let imageColumnBig = document.querySelector('#about-tile-image-big') 
-            let aboutDescription = document.querySelector('#aboutDescription')
+            let aboutDescription0 = document.querySelector('#aboutDescription-0')
+            let imageColumn0 = document.querySelector('#about-tile-image-small-0')
+            let imageColumnBig0 = document.querySelector('#about-tile-image-big-0')
+            let aboutDescription1 = document.querySelector('#aboutDescription-1')
+            let imageColumn1 = document.querySelector('#about-tile-image-small-1')
+            let imageColumnBig1 = document.querySelector('#about-tile-image-big-1')  
             let feedbackContainer = document.querySelector('#feedbackContainer')
             let equipmentContainer = document.querySelector('[data-animation-id="equipment"]')  
             let experienceContainer = document.querySelector('[data-animation-id="experience"]')
@@ -111,8 +115,8 @@ export default {
             document.addEventListener('scroll',()=>{
                 lastKnownScrollPosition = window.scrollY
              Animation.methods.addAnimation({
-                       element: aboutDescription,
-                       elementToAnimate: aboutDescription,
+                       element: aboutDescription0,
+                       elementToAnimate: aboutDescription0,
                        classNameNew:'animation--fadeInUp',
                        classNameOld:'animation--hidden',
                        addSpaceFromTop:100,
@@ -120,8 +124,8 @@ export default {
 
                    })
             Animation.methods.addAnimation({
-                       element: imageColumnBig,
-                       elementToAnimate: imageColumnBig.querySelector('img'),
+                       element: imageColumnBig0,
+                       elementToAnimate: imageColumnBig0.querySelector('img'),
                        classNameNew:'tile-animate-full',
                        classNameOld:'tile-animate-small',
                        addSpaceFromTop:100,
@@ -129,8 +133,35 @@ export default {
 
                    })
             Animation.methods.addAnimation({
-                       element: imageColumn,
-                       elementToAnimate: imageColumn.querySelector('img'),
+                       element: imageColumn0,
+                       elementToAnimate: imageColumn0.querySelector('img'),
+                       classNameNew:'tile-animate-full',
+                       classNameOld:'tile-animate-small',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: aboutDescription1,
+                       elementToAnimate: aboutDescription1,
+                       classNameNew:'animation--fadeInUp',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+            Animation.methods.addAnimation({
+                       element: imageColumnBig1,
+                       elementToAnimate: imageColumnBig1.querySelector('img'),
+                       classNameNew:'tile-animate-full',
+                       classNameOld:'tile-animate-small',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+            Animation.methods.addAnimation({
+                       element: imageColumn1,
+                       elementToAnimate: imageColumn1.querySelector('img'),
                        classNameNew:'tile-animate-full',
                        classNameOld:'tile-animate-small',
                        addSpaceFromTop:100,
