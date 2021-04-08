@@ -24,7 +24,6 @@ export default {
             const navbar = document.querySelector('#navbar')
             let lastKnownScrollPosition = 0
             let windowHeight = window.innerHeight
-            console.log(navbar.offsetHeight);
             document.addEventListener('scroll',()=>{
                 lastKnownScrollPosition = this.watchScrollPosition()
                 if(lastKnownScrollPosition >= (windowHeight - navbar.offsetHeight) ){

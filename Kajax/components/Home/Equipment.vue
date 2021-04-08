@@ -20,11 +20,11 @@
                         {{mainAccesories.description}}    
                     </p>
                     <ul class="equipment-specs-list">
-                        <li class="equipment-specs-list-item">
+                        <li class="equipment-specs-list-item" v-if="mainAccesories.capacity">
                             <p class="equipment-specs-list-item__text">Pojemność: {{mainAccesories.capacity}} os</p>
                         </li>
-                        <li class="equipment-specs-list-item">
-                            <p class="equipment-specs-list-item__text">Wyposażenie: {{mainAccesories.equipment}}</p>
+                        <li class="equipment-specs-list-item" v-if="mainAccesories.equipment">
+                            <p class="equipment-specs-list-item__text">Cechy: {{mainAccesories.equipment}}</p>
                         </li>
                     </ul>
 
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="preview-item-content">
                                     <h4 class="preview-item-content-header">{{equipment.title}}</h4>
-                                    <p class="preview-item-content-text">Pojemność: {{equipment.capacity}} os.</p>
+                                    <p class="preview-item-content-text" v-if="equipment.capacity">Pojemność: {{equipment.capacity}} os.</p>
                                 </div>
                             </div>
                         </div>
