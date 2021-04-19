@@ -3,7 +3,7 @@
        <header class="hut-container hut-container--header" >
             <div class="header-column-text">
                 <div class="header-content-container">
-                        <h2 class="hut-header-title">{{hutPage.headerTitle}}</h2>
+                        <h1 class="hut-header-title">{{hutPage.headerTitle}}</h1>
                         <p class="hut-header-lead">
                             {{hutPage.subtitleHeader}}
                         </p>
@@ -13,7 +13,7 @@
             <div class="hut-header__column-image">
                 <picture> 
                     <source :srcset="linkPrefix + hutPage.headerImage.formats.large.url" media="(min-width: 1000px)">
-                    <img class="header-image" :src="linkPrefix + hutPage.headerImage.formats.medium.url" :alt="hutPage.headerImage.alternativeText">
+                    <img v-lazy-load  class="header-image" :src="linkPrefix + hutPage.headerImage.formats.medium.url" :alt="hutPage.headerImage.alternativeText">
                 </picture>
             </div>
         </header>
@@ -21,7 +21,7 @@
             <div class="content-column content-column--left content-column--image" data-animation-id="hut-content-image-1">
                 <picture>
                     <source :srcset="linkPrefix + hutPage.hutPageContent[0].image.formats.small.url" media="(max-width: 1000px)">
-                    <img :src="linkPrefix + hutPage.hutPageContent[0].image.formats.medium.url" :alt="hutPage.hutPageContent[0].image.alternativeText">
+                    <img v-lazy-load  :src="linkPrefix + hutPage.hutPageContent[0].image.formats.medium.url" :alt="hutPage.hutPageContent[0].image.alternativeText">
                 </picture>
             </div>
             <div class="content-column content-column--right" data-animation-id="hut-content-column-1">
@@ -39,7 +39,7 @@
                 </header>
                 <div class="hut-layout-content hut-layout-content--blue" data-animation-id="hut-card-content">
                     <div class="hut-card" v-for="card in hutPage.card" :key="card.id">
-                            <img :src="linkPrefix + card.icon.url" class="hut-card__img" :alt="card.icon.alternativeText">
+                            <img v-lazy-load  :src="linkPrefix + card.icon.url" class="hut-card__img" :alt="card.icon.alternativeText">
                             <h3 class="hut-card__title">{{card.title}}</h3>
                             <p class="hut-card__text">{{card.text}}</p>
                     </div>
@@ -57,7 +57,7 @@
             <div class="content-column content-column--right content-column--image" data-animation-id="hut-content-image-2">
                 <picture>
                     <source :srcset="linkPrefix + hutPage.hutPageContent[1].image.formats.small.url" media="(max-width: 1000px)">
-                    <img :src="linkPrefix + hutPage.hutPageContent[1].image.formats.medium.url" alt="">
+                    <img v-lazy-load  :src="linkPrefix + hutPage.hutPageContent[1].image.formats.medium.url" alt="">
                 </picture>
             </div>
         </section>
@@ -91,7 +91,7 @@
                     <div class="gallery-header">
                         <div class="gallery-header__wrapper">
                             <button class="gallery-thumbnails-card" :class="{'gallery-thumbnails-card--target':index == selected}" v-for="(thumbnail, index) in hutPage.hutGallery" :key="thumbnail.id" @click="activeGallery = index, selected = index" :title="'Kliknij, aby zobaczyć zdjęcia z galerii ' +thumbnail.title" :aria-label="'Kliknij, aby zobaczyć zdjęcia z galerii ' +thumbnail.title">
-                                <img :src="linkPrefix + thumbnail.image[0].formats.thumbnail.url" class="gallery-thumbnails-card__img" :alt="thumbnail.image[0].alternativeText">
+                                <img v-lazy-load  :src="linkPrefix + thumbnail.image[0].formats.thumbnail.url" class="gallery-thumbnails-card__img" :alt="thumbnail.image[0].alternativeText">
                                 <h3 class="gallery-thumbnails-card__title">
                                     {{thumbnail.title}}
                                 </h3>
@@ -103,7 +103,7 @@
                             <picture>
                                 <source media="(min-width: 1150px)" :srcset="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.small.url">
                                 <source media="(min-width: 850px)" :srcset="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.medium.url">
-                                <img class="gallery-image gallery-image--big" :src="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.small.url" :alt="hutPage.hutGallery[activeGallery].image[0].alternativeText">
+                                <img v-lazy-load  class="gallery-image gallery-image--big" :src="linkPrefix + hutPage.hutGallery[activeGallery].image[0].formats.small.url" :alt="hutPage.hutGallery[activeGallery].image[0].alternativeText">
                             </picture>
                             <p class="gallery-subtitle">
                                 Zobacz naszą galerię obiektu
@@ -111,7 +111,7 @@
                         </div>
                         <div class="gallery-content__column gallery-content__column--tile">
                             <picture v-for="(galleryImg, index) in hutPage.hutGallery[activeGallery].image" :key="galleryImg.id" v-if="index">
-                                <img class="gallery-image" :src="linkPrefix + galleryImg.formats.small.url" :alt="galleryImg.alternativeText">
+                                <img v-lazy-load  class="gallery-image" :src="linkPrefix + galleryImg.formats.small.url" :alt="galleryImg.alternativeText">
                             </picture>
                             
                         </div>
@@ -135,7 +135,7 @@
                         </div>
                         <div class="price-card-variants" v-for="priceVariant in priceCard.priceVariants" :key="priceVariant.id">
                             <div class="price-card-variants__img-box">
-                                <img class="card-variants-img" :src="linkPrefix + priceVariant.icon.url" :alt="priceVariant.icon.alternativeText">
+                                <img v-lazy-load  class="card-variants-img" :src="linkPrefix + priceVariant.icon.url" :alt="priceVariant.icon.alternativeText">
                             </div>
                             <div class="price-card-variants__content">
                                 <h4 class="card-variants-title">{{priceVariant.title}}</h4>

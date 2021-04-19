@@ -8,7 +8,7 @@
                 <div class="image-view-container" data-animation-id="equipment-main-image" v-if="mainAccesories !== ''">
                     <div class="main-image-box">
                         <picture>
-                            <img class="main-image" :src="linkPrefix + mainAccesories.image.formats.small.url" :alt="mainAccesories.image.alternativeText" width="320px" height="320px">
+                            <img v-lazy-load  class="main-image" :src="linkPrefix + mainAccesories.image.formats.small.url" :alt="mainAccesories.image.alternativeText" width="320px" height="320px">
                         </picture>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                         <div class="preview-all-subbox">
                             <div class="peview-item" role="button" tabindex="0" v-for="equipment in accessories" :key="equipment.id" v-on:click="mainAccesories = equipment, selected = equipment.id" :class="{'preview-item--selected':selected==equipment.id}" :title="'Kliknij, aby zobaczyć opis dla: ' + equipment.title " :aria-label="'Kliknij, aby zobaczyć opis dla: ' + equipment.title ">
                                 <div class="preview-item-image-box">
-                                    <img :src="linkPrefix + equipment.image.formats.thumbnail.url" :alt="equipment.image.alternativeText" width="100px" height="70px">
+                                    <img v-lazy-load  :src="linkPrefix + equipment.image.formats.thumbnail.url" :alt="equipment.image.alternativeText" width="100px" height="70px">
                                 </div>
                                 <div class="preview-item-content">
                                     <h4 class="preview-item-content-header">{{equipment.title}}</h4>

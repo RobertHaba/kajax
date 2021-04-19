@@ -3,7 +3,7 @@
        <header class="road-header" >
             <div class="header-column-text">
                 <div class="header-content-container">
-                        <h2 class="road-header-title">Spływy kajakowe - rzeka {{roads[this.roadsID].title}}</h2>
+                        <h1 class="road-header-title">Spływy kajakowe - rzeka {{roads[this.roadsID].title}}</h1>
                         <h3 class="road-header-subtitle">Trasa - {{roads[this.roadsID].subtitle}}</h3>
                         <p class="road-header-lead">
                             {{roads[this.roadsID].description_site}}
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="road-header__column-image">
-                    <img class="header-image" :src="linkPrefix + roads[this.roadsID].roads_content[0].image.formats.large.url" :alt="roads[this.roadsID].roads_content[0].image.alternativeText">
+                    <img v-lazy-load  class="header-image" :src="linkPrefix + roads[this.roadsID].roads_content[0].image.formats.large.url" :alt="roads[this.roadsID].roads_content[0].image.alternativeText">
             </div>
         </header>
         <section class="road-container" data-animation-id="road-content-1">
@@ -23,7 +23,7 @@
             </div>
             <div class="road-content-column road-content-column--card road-content-column--green" data-animation-id="road-box-1">
                <div class="road-content-card road-content-card--center road-content-card--green">
-                   <img :src="linkPrefix + roads[this.roadsID].road_map.url" alt="Mapa">
+                   <img v-lazy-load  :src="linkPrefix + roads[this.roadsID].road_map.url" alt="Mapa">
                </div>
                <div class="road-content-card">
                    <h3 class="road-content-card-title">{{roads[this.roadsID].road_price[0].title}}</h3>
@@ -76,13 +76,13 @@
                                 <source media="(min-width: 1300px)" :srcset="linkPrefix + roads[this.roadsID].roads_content[activeGalleryImageId].image.formats.small.url">
                                 <source media="(min-width: 850px)" :srcset="linkPrefix + roads[this.roadsID].roads_content[activeGalleryImageId].image.formats.medium.url">
                                 <source media="(min-width: 650px)" :srcset="linkPrefix + roads[this.roadsID].roads_content[activeGalleryImageId].image.formats.small.url">
-                                <img class="gallery-image" :src="linkPrefix + roads[this.roadsID].roads_content[activeGalleryImageId].image.formats.medium.url" :alt="roads[this.roadsID].roads_content[activeGalleryImageId].image.alternativeText">
+                                <img v-lazy-load  class="gallery-image" :src="linkPrefix + roads[this.roadsID].roads_content[activeGalleryImageId].image.formats.medium.url" :alt="roads[this.roadsID].roads_content[activeGalleryImageId].image.alternativeText">
                     </picture>
                </div>
                <div class="road-carousel">
                    <div class="road-content-carousel">
                         <button class="road-content-carousel-box" v-for="(contentImage, index) in roads[this.roadsID].roads_content" :key="contentImage.id" @click="activeGalleryImageId = index">
-                                <img class="gallery-image" :src="linkPrefix + contentImage.image.formats.thumbnail.url" :alt="contentImage.image.alternativeText">
+                                <img v-lazy-load  class="gallery-image" :src="linkPrefix + contentImage.image.formats.thumbnail.url" :alt="contentImage.image.alternativeText">
                             
                         </button>
                     </div>

@@ -2,7 +2,7 @@
   <section class="container container--road" :style="'background-image: url(' + linkPrefix + roadContent.roads_content[0].image.formats.small.url +')'" id="road" v-if="roadContent !== ''">
       <div class="road-layout">
             <div class="road-header">
-                <h2 class="title">Trasy, Rzeki, Jeziora</h2>
+                <h2 class="title">Nasze trasy spływów kajakowych na Kaszubach</h2>
 
             </div>
             <div class="road-container">
@@ -41,7 +41,7 @@
                                         </li>
                                     </ul>
                                     <div class="road-view-content__image">
-                                        <img :src="linkPrefix + roadContent.road_map.formats.thumbnail.url" :alt="roadContent.road_map.alternativeText">
+                                        <img v-lazy-load  :src="linkPrefix + roadContent.road_map.formats.thumbnail.url" :alt="roadContent.road_map.alternativeText">
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="road-view-box__tile">
                                     <picture> 
-                                        <img :src="linkPrefix + img.image.formats.small.url" :alt="img.image.alternativeText">
+                                        <img v-lazy-load  :src="linkPrefix + img.image.formats.small.url" :alt="img.image.alternativeText">
                                     </picture>
                                 </div>
                             </div>

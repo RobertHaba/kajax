@@ -5,6 +5,7 @@
     <Road />
     <Feedback />
     <Equipment />
+    <Price />
     <About postId="1"/>
     <Experience />
     <Hut />
@@ -18,6 +19,7 @@ import About from '../components/Home/About'
 import Road from '../components/Home/Road'
 import Feedback from '../components/Home/Feedback'
 import Equipment from '../components/Home/Equipment'
+import Price from '../components/Home/Price'
 import Experience from '../components/Home/Experience'
 import Hut from '../components/Home/Hut'
 import Footer from '../components/Home/Footer'
@@ -25,9 +27,9 @@ import Animation from "../components/assets/Animation"
 export default {
     data(){
       return{
-        title: 'Spływy kajakowe kaszuby, kajakiem przez Wdę, Zbyrzyce | Kajax Lipusz',
-        description: 'Niezapomniane spływy kajakowe rzeką Wdą i Zbrzyce! Wypożycz nasze kajaki i zwiedź najpopularniejsze kaszubskie szlaki. Noclegi w domku Lipusz',
-        image: 'https://kajakinakaszubach.haba.usermd.net/image/schodno.jpg'
+        title: 'Spływy kajakowe Kaszuby i Pomorze | Kajaki WDA | Kajax Lipusz',
+        description: 'Niezapomniane spływy kajakowe rzeką Wdą i Zbrzyce! Wypożycz kajaki i zwiedź kaszubskie szlaki. Udaj się większą grupą na kajaki w Lipuszu!',
+        image: 'https://kajaxadmin.haba.usermd.net/uploads/4_5439575d13.webp'
       }
     },
     head() {
@@ -94,6 +96,7 @@ export default {
     Road,
     Feedback,
     Equipment,
+    Price,
     Experience,
     Footer,
     Hut,
@@ -109,6 +112,7 @@ export default {
             let imageColumnBig1 = document.querySelector('#about-tile-image-big-1')  
             let feedbackContainer = document.querySelector('#feedbackContainer')
             let equipmentContainer = document.querySelector('[data-animation-id="equipment"]')  
+            let priceContainer = document.querySelector('[data-animation-id="price"]')  
             let experienceContainer = document.querySelector('[data-animation-id="experience"]')
             let hutContainer = document.querySelector('[data-animation-id="hut"]')  
             let lastKnownScrollPosition = 0;
@@ -207,6 +211,15 @@ export default {
             Animation.methods.addAnimation({
                        element: experienceContainer,
                        elementToAnimate: experienceContainer.querySelector('[data-animation-id="experience-wrapper"]'),
+                       classNameNew:'animation--fadeInLeftToRight',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+            Animation.methods.addAnimation({
+                       element: priceContainer,
+                       elementToAnimate: priceContainer.querySelector('[data-animation-id="wrapper"]'),
                        classNameNew:'animation--fadeInLeftToRight',
                        classNameOld:'animation--hidden',
                        addSpaceFromTop:100,

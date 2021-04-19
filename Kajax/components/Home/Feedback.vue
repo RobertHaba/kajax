@@ -5,10 +5,10 @@
           <div class="feedback-card feedback-card--small">
             <h2 class="feedback-main-title">OPINIE</h2>
           </div>
-          <p class="feedback-main-text">Spodobały Ci się nasze spływy? Oceń nas!</p>
+          <p class="feedback-main-text">Spodobały Ci się nasze spływy kajakowe? Oceń nas!</p>
           <div class="feedback-main-social-container">
-            <a href="https://www.facebook.com/Kajax-Sp%C5%82ywy-kajakowe-342252465837367/reviews/?ref=page_internal" class="feedback-main-social-button" title="Kliknij, aby przejść do opinii na Facebooku" aria-label="Kliknij, aby przejść do opinii na Facebooku"><img src="../../assets/facebook.svg" alt="Ikonka Facebooka"></a>
-            <a href="https://www.google.com/maps/place/Wypo%C5%BCyczalnia+kajak%C3%B3w+''KAJAX''/@54.0947507,17.7864533,15z/data=!4m7!3m6!1s0x0:0x37ba492c8cfd86df!8m2!3d54.0947507!4d17.7864533!9m1!1b1/reviews" title="Kliknij, aby przejść do opinii na Googlu" aria-label="Kliknij, aby przejść do opinii na Googlu" class="feedback-main-social-button"><img src="../../assets/google.svg" alt="Facebook icon as button"></a>
+            <a href="https://www.facebook.com/Kajax-Sp%C5%82ywy-kajakowe-342252465837367/reviews/?ref=page_internal" class="feedback-main-social-button" title="Kliknij, aby przejść do opinii na Facebooku" aria-label="Kliknij, aby przejść do opinii na Facebooku"><img v-lazy-load  src="../../assets/facebook.svg" alt="Ikonka Facebooka"></a>
+            <a href="https://www.google.com/maps/place/Wypo%C5%BCyczalnia+kajak%C3%B3w+''KAJAX''/@54.0947507,17.7864533,15z/data=!4m7!3m6!1s0x0:0x37ba492c8cfd86df!8m2!3d54.0947507!4d17.7864533!9m1!1b1/reviews" title="Kliknij, aby przejść do opinii na Googlu" aria-label="Kliknij, aby przejść do opinii na Googlu" class="feedback-main-social-button"><img v-lazy-load  src="../../assets/google.svg" alt="Facebook icon as button"></a>
           </div>
       </div>
       <div class="feedback-card">

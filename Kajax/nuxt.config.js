@@ -42,8 +42,14 @@ export default {
   modules: [
     '@nuxtjs/apollo',
     '@nuxtjs/markdownit',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
+    'nuxt-lazy-load'
   ],
+  robots: {
+    UserAgent: '*',
+    Sitemap: 'https://kajakinakaszubach.pl/sitemap.xml'
+  },
   markdownit: {
     preset: 'default',
     linkify: true,

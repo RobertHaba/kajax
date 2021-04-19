@@ -6,19 +6,19 @@
                     <div class="footer-about">
                         <h2 class="footer-about-title">Kajax - Kajaki na kaszubach.</h2>
                         <p class="footer-about-description">
-                            Z nami doznasz niesamowitych emocji na spływie kajakowym! Poznasz najlepsze szlaki wodne na terenie pomorza. Nie czekaj i rezerwuj już dziś!
+                            Z nami doznasz niesamowitych emocji na spływie kajakowym w samym sercu Kaszub! Poznasz najlepsze szlaki wodne na terenie pomorza. Nie czekaj i rezerwuj już dziś!
                         </p>
                     </div>
                     <div class="footer-social">
                         <a class="footer-social-box" href="https://www.facebook.com/Kajax-Sp%C5%82ywy-kajakowe-342252465837367/" title="Kliknij, aby przejść do naszej strony na Facebooku" aria-label="Kliknij, aby przejść do naszej strony na Facebooku">
                             <div class="footer-social-box-image-container">
-                                <img class="footer-social-box-image-container__image" src="../../assets/facebook.svg" alt="Ikonka Facebooka" width="50px" height="50px">
+                                <img v-lazy-load  class="footer-social-box-image-container__image" src="../../assets/facebook.svg" alt="Ikonka Facebooka" width="50px" height="50px">
                             </div>
                             <p class="footer-social-box__link" >Facebook</p>
                         </a>
                         <a class="footer-social-box" href="https://goo.gl/maps/xwBYrLZ6YnhoiUVM7" title="Kliknij, aby przejść do naszej strony na Googlu" aria-label="Kliknij, aby przejść do naszej strony na Googlu">
                             <div class="footer-social-box-image-container">
-                                <img class="footer-social-box-image-container__image" src="../../assets/google.svg" alt="Ikonka Googla" width="50px" height="50px">
+                                <img v-lazy-load  class="footer-social-box-image-container__image" src="../../assets/google.svg" alt="Ikonka Googla" width="50px" height="50px">
                             </div>
                             <p class="footer-social-box__link" >Google</p>
                         </a>
@@ -27,7 +27,7 @@
                         <h3 class="footer-shortcuts-title">Skróty:</h3>
                         <ul class="footer-shortcuts-list">
                             <li class="footer-shortcuts-list__item" v-for="road in roads" :key="road.id">
-                                <nuxt-link :to="`/road/${road.title}-${road.id}`" :title="'Kliknij, aby przejść do strony:' + road.subtitle" :aria-label="'Kliknij, aby przejść do strony:' + road.subtitle">Trasa kajakowa - {{road.subtitle}}, rzeką {{road.title}}</nuxt-link>
+                                <nuxt-link :to="`/road/${road.title}-${road.id}`" :title="'Kliknij, aby przejść do strony:' + road.subtitle" :aria-label="'Kliknij, aby przejść do strony:' + road.subtitle">Spływy kajakowe - {{road.subtitle}}, rzeką {{road.title}}</nuxt-link>
                             </li>
                             <li class="footer-shortcuts-list__item"><nuxt-link to="/hut" title="Kliknij, aby przejść do strony z domkiem" aria-label="Kliknij, aby przejść do strony z domkiem">Domek Holenderski</nuxt-link></li>
                         </ul>
@@ -41,7 +41,7 @@
                 <div class="footer-contact">
                         <ul class="footer-contact-list">
                             <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Numer telefonu:</h4><p class="footer-contact-list-item-text footer-contact-list-item-text--link"><a href="tel:+48696599556" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">696-599-556</a></p></li>
-                            <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Adres:</h4><p class="footer-contact-list-item-text">Pomorze - Lipusz 83-424, ul. Rogali 9</p></li>
+                            <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Adres:</h4><p class="footer-contact-list-item-text">Pomorze - Lipusz 83-424, ul. Rogali 16</p></li>
                             <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Numer telefonu 2:</h4><p class="footer-contact-list-item-text footer-contact-list-item-text--link"><a href="tel:+48696697256" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">696-697-256</a></p></li>
                             <li class="footer-contact-list__item"><h4 class="footer-contact-list-item-title">Email:</h4><p class="footer-contact-list-item-text"><a href="mailto:justynakubiszewska@wp.pl" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">justynakubiszewska@wp.pl</a></p></li>
                         

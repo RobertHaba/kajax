@@ -8,12 +8,12 @@
                 </h3>
             </div>
             <div class="tile" :id="'about-tile-image-small-'+postId">
-                <img :src="linkPrefix + abouts[postId].image[0].formats.small.url" :alt="abouts[postId].image[0].alternativeText">
+                <img v-lazy-load  :src="linkPrefix + abouts[postId].image[0].formats.small.url" :alt="abouts[postId].image[0].alternativeText">
             </div>
         </div>
         <div class="row-image">
             <div class="tile tile--big" :id="'about-tile-image-big-'+postId">
-                <img :src="linkPrefix + abouts[postId].image[1].formats.small.url" :alt="abouts[postId].image[1].alternativeText">
+                <img v-lazy-load  :src="linkPrefix + abouts[postId].image[1].formats.small.url" :alt="abouts[postId].image[1].alternativeText">
             </div>
         </div>
       </div>

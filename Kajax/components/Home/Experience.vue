@@ -9,7 +9,7 @@
                 <div class="experience-carousele-wrapper" data-animation-id="experience-wrapper">
                     <div class="experience-carousele-item" v-for="experience in experiences" :key="experience.title">
                         <div class="experience-carousele-icon">
-                            <img :src='linkPrefix+experience.image.url' :alt="experience.image.alternativeText">
+                            <img v-lazy-load  :src='linkPrefix+experience.image.url' :alt="experience.image.alternativeText">
                         </div>
                         <div class="experience-carousele-content">
                             <h3 class="experience-carousele-content-title">{{experience.title}}</h3>

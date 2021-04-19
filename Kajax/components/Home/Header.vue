@@ -2,7 +2,7 @@
   <header class="home-header" v-if="headers !== ''">
       <div class="home-header__column-text">
           <div class="header-column">
-                <h2 class="home-header-title">{{headers[0].Title}}</h2>
+                <h1 class="home-header-title">{{headers[0].Title}}</h1>
                 <p class="home-header-lead">
                     {{headers[0].Text}}
                 </p>
@@ -11,7 +11,7 @@
       </div>
       <div class="home-header__column-image">
               <picture>
-                  <img class="header-image"  alt="Ładowanie..." id="header-image">
+                  <img v-lazy-load  class="header-image"  alt="Ładowanie..." id="header-image">
               </picture>
       </div>
   </header>

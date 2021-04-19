@@ -11,7 +11,7 @@
 
             </div>
             <ul class="list-hut-info" v-for="hutContent in huts[0].hutContentMainSite" v-bind:key="hutContent.id">
-                    <li class="list-hut-info__item"><span class="hut-info-icon"><img :src="linkPrefix + hutContent.icon.url" :alt="hutContent.icon.alternativeText"></span><p>{{hutContent.description}}</p></li>
+                    <li class="list-hut-info__item"><span class="hut-info-icon"><img v-lazy-load  :src="linkPrefix + hutContent.icon.url" :alt="hutContent.icon.alternativeText"></span><p>{{hutContent.description}}</p></li>
             </ul>
             <div class="column-footer">
                 <nuxt-link to="/hut" class="column-footer-button" title="Kliknij, aby przejśc do strony z domkiem" aria-label="Kliknij, aby przejść do strony z domkiem">Zobacz ofertę</nuxt-link>
@@ -20,15 +20,15 @@
       <div class="column column--image" data-animation-id="hut-image">
           <div class="hut-box hut-box--big">
               <picture class="hut-image hut-image--big">
-                  <img :src="linkPrefix+huts[0].imagesMainSite[0].formats.small.url" :alt="huts[0].imagesMainSite[0].alternativeText">
+                  <img v-lazy-load  :src="linkPrefix+huts[0].imagesMainSite[0].formats.small.url" :alt="huts[0].imagesMainSite[0].alternativeText">
               </picture>
           </div>
           <div class="hut-box hut-box--small">
               <picture class="hut-image hut-image--small">
-                  <img :src="linkPrefix+huts[0].imagesMainSite[1].formats.small.url" :alt="huts[0].imagesMainSite[1].alternativeText">
+                  <img v-lazy-load  :src="linkPrefix+huts[0].imagesMainSite[1].formats.small.url" :alt="huts[0].imagesMainSite[1].alternativeText">
               </picture>
               <picture class="hut-image hut-image--small">
-                  <img :src="linkPrefix+huts[0].imagesMainSite[2].formats.small.url" :alt="huts[0].imagesMainSite[2].alternativeText">
+                  <img v-lazy-load  :src="linkPrefix+huts[0].imagesMainSite[2].formats.small.url" :alt="huts[0].imagesMainSite[2].alternativeText">
               </picture>
           </div>
       </div>
