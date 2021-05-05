@@ -18,12 +18,12 @@
     },
     "title": {
       "type": "string",
-      "maxLength": 30,
+      "maxLength": 45,
       "required": true
     },
     "price": {
       "type": "decimal",
-      "required": true,
+      "required": false,
       "max": 100000
     },
     "shortDescription1": {

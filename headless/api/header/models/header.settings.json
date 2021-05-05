@@ -14,12 +14,12 @@
     "Title": {
       "type": "string",
       "required": true,
-      "maxLength": 30
+      "maxLength": 60
     },
     "Text": {
       "type": "string",
       "required": true,
-      "maxLength": 100
+      "maxLength": 125
     },
     "image": {
       "collection": "file",

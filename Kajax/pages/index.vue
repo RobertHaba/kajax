@@ -5,8 +5,9 @@
     <Road />
     <Feedback />
     <Equipment />
-    <Price />
     <About postId="1"/>
+    <Price />
+    <About postId="2"/>
     <Experience />
     <Hut />
     <Footer />
@@ -27,8 +28,8 @@ import Animation from "../components/assets/Animation"
 export default {
     data(){
       return{
-        title: 'Spływy kajakowe Kaszuby i Pomorze | Kajaki WDA | Kajax Lipusz',
-        description: 'Niezapomniane spływy kajakowe rzeką Wdą i Zbrzyce! Wypożycz kajaki i zwiedź kaszubskie szlaki. Udaj się większą grupą na kajaki w Lipuszu!',
+        title: 'Kajaki Kaszuby - Spływy Kajakowe Na Kaszubach | Lipusz Wda',
+        description: 'Kajax - Kajaki i Kaszuby to najlepsze połączenie na udane spływy kajakowe! Wypożycz nasze kajaki i zwiedź takie rzeki jak Wda, Zbrzyca i Słupia.',
         image: 'https://kajaxadmin.haba.usermd.net/uploads/4_5439575d13.webp'
       }
     },
@@ -109,7 +110,10 @@ export default {
             let imageColumnBig0 = document.querySelector('#about-tile-image-big-0')
             let aboutDescription1 = document.querySelector('#aboutDescription-1')
             let imageColumn1 = document.querySelector('#about-tile-image-small-1')
-            let imageColumnBig1 = document.querySelector('#about-tile-image-big-1')  
+            let imageColumnBig1 = document.querySelector('#about-tile-image-big-1')
+            let aboutDescription2 = document.querySelector('#aboutDescription-2')
+            let imageColumn2 = document.querySelector('#about-tile-image-small-2')
+            let imageColumnBig2 = document.querySelector('#about-tile-image-big-2')    
             let feedbackContainer = document.querySelector('#feedbackContainer')
             let equipmentContainer = document.querySelector('[data-animation-id="equipment"]')  
             let priceContainer = document.querySelector('[data-animation-id="price"]')  
@@ -166,6 +170,33 @@ export default {
             Animation.methods.addAnimation({
                        element: imageColumn1,
                        elementToAnimate: imageColumn1.querySelector('img'),
+                       classNameNew:'tile-animate-full',
+                       classNameOld:'tile-animate-small',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+             Animation.methods.addAnimation({
+                       element: aboutDescription2,
+                       elementToAnimate: aboutDescription2,
+                       classNameNew:'animation--fadeInUp',
+                       classNameOld:'animation--hidden',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+            Animation.methods.addAnimation({
+                       element: imageColumnBig2,
+                       elementToAnimate: imageColumnBig2.querySelector('img'),
+                       classNameNew:'tile-animate-full',
+                       classNameOld:'tile-animate-small',
+                       addSpaceFromTop:100,
+                       scrollPosition: lastKnownScrollPosition
+
+                   })
+            Animation.methods.addAnimation({
+                       element: imageColumn2,
+                       elementToAnimate: imageColumn2.querySelector('img'),
                        classNameNew:'tile-animate-full',
                        classNameOld:'tile-animate-small',
                        addSpaceFromTop:100,

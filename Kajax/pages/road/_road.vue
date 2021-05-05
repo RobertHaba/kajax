@@ -23,16 +23,22 @@
             </div>
             <div class="road-content-column road-content-column--card road-content-column--green" data-animation-id="road-box-1">
                <div class="road-content-card road-content-card--center road-content-card--green">
-                   <img v-lazy-load  :src="linkPrefix + roads[this.roadsID].road_map.url" alt="Mapa">
+                   <img v-lazy-load  :src="linkPrefix + roads[this.roadsID].road_map.url" alt="Mapa" @click="openImageView($event.target.currentSrc)" title="Kliknij, aby włączyć podgląd zdjęcia" aria-label="Kliknij, aby włączyć podgląd zdjęcia">
                </div>
                <div class="road-content-card">
                    <h3 class="road-content-card-title">{{roads[this.roadsID].road_price[0].title}}</h3>
                    <ul class="road-content-card-list">
                        <li class="road-content-card-list__item">
                            <p class="card-list-item-text">Poniedziałek-piątek: <span class="card-list-item-content">{{roads[this.roadsID].road_price[0].normal_days}}zł/os</span></p>
+                           <p class="card-list-item-text card-list-item-text--small">Kajak 2 osobowy {{(roads[this.roadsID].road_price[0].normal_days) * 2}}zł</p>
                        </li>
                        <li class="road-content-card-list__item">
-                           <p class="card-list-item-text">Weekend: <span class="card-list-item-content">{{roads[this.roadsID].road_price[0].weekend_days}}zł/os</span></p>
+                           <p class="card-list-item-text">Sobota-niedziela: <span class="card-list-item-content">{{roads[this.roadsID].road_price[0].weekend_days}}zł/os</span></p>
+                           <p class="card-list-item-text card-list-item-text--small">Kajak 2 osobowy {{(roads[this.roadsID].road_price[0].weekend_days) * 2}}zł</p>
+                       </li>
+                       <li class="road-content-card-list__item">
+                           <p class="card-list-item-text">Poniedziałek-niedziela: <span class="card-list-item-content">{{roads[this.roadsID].road_price[0].onePersonDay}}zł/os</span></p>
+                           <p class="card-list-item-text card-list-item-text--small">Kajak 1 osobowy {{roads[this.roadsID].road_price[0].onePersonDay}}zł</p>
                        </li>
                    </ul>
                </div>
@@ -51,19 +57,18 @@
                        <li class="road-content-card-list__item">
                            <p class="card-list-item-text">Przeszkody: <span class="card-list-item-content">{{roads[this.roadsID].road_barriers}}</span></p>
                        </li>
-                       <li class="road-content-card-list__item">
-                           <p class="card-list-item-text">Przesiadki: <span class="card-list-item-content">{{roads[this.roadsID].road_transfers}}</span></p>
-                       </li>
                    </ul>
                </div>
                <div class="road-content-card road-content-card--green">
                    <h3 class="road-content-card-title">{{roads[this.roadsID].road_price[1].title}}</h3>
                    <ul class="road-content-card-list">
                        <li class="road-content-card-list__item">
-                           <p class="card-list-item-text">Poniedziałek-piątek: <span class="card-list-item-content">{{roads[this.roadsID].road_price[1].normal_days}}zł/os</span></p>
+                           <p class="card-list-item-text">Poniedziałek-Niedziela: <span class="card-list-item-content">{{roads[this.roadsID].road_price[1].normal_days}}zł/os</span></p>
+                           <p class="card-list-item-text card-list-item-text--small card-list-item-text--green">Kajak 2 osobowy {{(roads[this.roadsID].road_price[1].normal_days) * 2}}zł</p>
                        </li>
                        <li class="road-content-card-list__item">
-                           <p class="card-list-item-text">Weekend: <span class="card-list-item-content">{{roads[this.roadsID].road_price[1].weekend_days}}zł/os</span></p>
+                           <p class="card-list-item-text">Poniedziałek-Niedziela: <span class="card-list-item-content">{{roads[this.roadsID].road_price[1].onePersonDay}}zł/os</span></p>
+                           <p class="card-list-item-text card-list-item-text--small card-list-item-text--green">Kajak 1 osobowy {{roads[this.roadsID].road_price[1].onePersonDay}}zł</p>
                        </li>
                    </ul>
                </div>
@@ -95,10 +100,12 @@
             </div>
         </section>
         <Footer />
+        <imageView v-if="viewImage" :imageSrc="viewImageSrc" :close="false"/>
    </div>
 </template>
 
 <script>
+import imageView from "../../components/fullViewImage.vue"
 import roadsQuery from "../../apollo/queries/road/road"
 import Footer from '../../components/Home/Footer'
 import Animation from "../../components/assets/Animation"
@@ -177,8 +184,13 @@ export default {
             roadsID:'0',
             activeGalleryImageId:0,
             linkPrefix: 'https://kajaxadmin.haba.usermd.net',
-            image: 'https://kajakinakaszubach.haba.usermd.net/image/schodno.jpg'
+            image: 'https://kajakinakaszubach.haba.usermd.net/image/schodno.jpg',
+            viewImage: false,
+            viewImageSrc: '',
         }
+    },
+    components:{
+        imageView
     },
     apollo:{
         roads:{
@@ -200,6 +212,14 @@ export default {
         }
     },
     methods: {
+        
+        openImageView(src){
+            this.viewImage = false
+            setTimeout(() => {
+            this.viewImage = true
+            }, 10);
+            this.viewImageSrc = src
+        },
     runAnimation(){
             let roadContent = document.querySelector('[data-animation-id="road-content-1"]')
             let roadContent2 = document.querySelector('[data-animation-id="road-content-2"]')
@@ -422,6 +442,14 @@ export default {
     }
     .card-list-item-text{
         font-size: 0.9rem;
+    }
+    .card-list-item-text--small{
+        margin-top: -0.5rem;
+        font-size: 0.8rem;
+        color: #9AC4DC;
+    }
+    .card-list-item-text--green{
+        color: rgb(201, 201, 201);
     }
     .card-list-item-content{
         color:#9AC4DC;

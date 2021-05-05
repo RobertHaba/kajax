@@ -3,7 +3,7 @@
         <div class="experience-layout">
             <div class="experience-header">
                 <h2 class="title">Dlaczego warto spływać z nami?</h2>
-                <a href="tel:+48696599556" class="button" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń <span>999-999-999</span></a>
+                <a href="tel:+48696599556" class="button" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń <span>696-599-556</span></a>
             </div>
             <div class="experience-carousel-container">
                 <div class="experience-carousele-wrapper" data-animation-id="experience-wrapper">

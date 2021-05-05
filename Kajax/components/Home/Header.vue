@@ -70,7 +70,7 @@ export default {
         flex-direction: column;
         width: calc(100% - 10rem);
         max-width: 1300px;
-        margin-bottom: 10rem;
+        margin-bottom: 4rem;
         transform: translateX(-50%);
         transition: 1s ease all;
         z-index: 4;
@@ -95,7 +95,7 @@ export default {
         max-width: 340px;
     }
     .home-header-title{
-        font-size: 2.5rem;
+        font-size: 2.3rem;
         font-weight: bold;
         line-height: 100%;
         margin-bottom: 1.5rem;

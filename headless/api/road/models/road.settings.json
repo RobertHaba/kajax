@@ -18,7 +18,7 @@
     },
     "subtitle": {
       "type": "string",
-      "maxLength": 24,
+      "maxLength": 35,
       "required": true
     },
     "road_level": {

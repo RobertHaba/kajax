@@ -8,12 +8,12 @@
                 </h3>
             </div>
             <div class="tile" :id="'about-tile-image-small-'+postId">
-                <img v-lazy-load  :src="linkPrefix + abouts[postId].image[0].formats.small.url" :alt="abouts[postId].image[0].alternativeText">
+                <img v-lazy-load  :src="linkPrefix + abouts[postId].image[0].formats.small.url" :alt="abouts[postId].image[0].alternativeText" @click="openImageView(linkPrefix + abouts[postId].image[0].formats.small.url)" title="Kliknij, aby włączyć podgląd zdjęcia" aria-label="Kliknij, aby włączyć podgląd zdjęcia">
             </div>
         </div>
         <div class="row-image">
             <div class="tile tile--big" :id="'about-tile-image-big-'+postId">
-                <img v-lazy-load  :src="linkPrefix + abouts[postId].image[1].formats.small.url" :alt="abouts[postId].image[1].alternativeText">
+                <img v-lazy-load  :src="linkPrefix + abouts[postId].image[1].formats.small.url" :alt="abouts[postId].image[1].alternativeText" @click="openImageView(linkPrefix + abouts[postId].image[1].formats.small.url)" title="Kliknij, aby włączyć podgląd zdjęcia" aria-label="Kliknij, aby włączyć podgląd zdjęcia">
             </div>
         </div>
       </div>
@@ -28,18 +28,25 @@
               <p class="about-description">{{abouts[postId].text}}</p>
           </div>
       </div>
+      <imageView v-if="viewImage" :imageSrc="viewImageSrc" :close="false"/>
   </section>
 </template>
 
 <script>
+import imageView from "../fullViewImage.vue"
 import aboutsQuery from "../../apollo/queries/home/about"
 export default {
     props:['postId'],
     data(){
         return{
             abouts:'',
-            linkPrefix: 'https://kajaxadmin.haba.usermd.net'
+            linkPrefix: 'https://kajaxadmin.haba.usermd.net',
+            viewImage: false,
+            viewImageSrc: '',
         }
+    },
+    components:{
+        imageView
     },
     apollo:{
         abouts:{
@@ -47,6 +54,15 @@ export default {
             query: aboutsQuery
         }
     },
+    methods:{
+        openImageView(src){
+            this.viewImage = false
+            setTimeout(() => {
+            this.viewImage = true
+            }, 10);
+            this.viewImageSrc = src
+        },
+    }
 }
 </script>
 

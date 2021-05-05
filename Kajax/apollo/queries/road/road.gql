@@ -29,6 +29,7 @@ query roads {
       title
       normal_days
       weekend_days
+      onePersonDay
     }
   }
 }

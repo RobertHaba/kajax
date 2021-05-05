@@ -1,0 +1,12 @@
+query prices {
+  prices {
+  	priceValue{
+      id
+      typ
+      priceForPerson
+      priceForAll
+      numberOfSeats
+      priceFor
+    }
+  }
+}

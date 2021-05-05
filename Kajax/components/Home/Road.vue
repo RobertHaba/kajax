@@ -1,19 +1,22 @@
 <template>
   <section class="container container--road" :style="'background-image: url(' + linkPrefix + roadContent.roads_content[0].image.formats.small.url +')'" id="road" v-if="roadContent !== ''">
+      
       <div class="road-layout">
             <div class="road-header">
                 <h2 class="title">Nasze trasy spływów kajakowych na Kaszubach</h2>
 
             </div>
             <div class="road-container">
-                    <ul class="road-list">
+                    <div class="road-river-carousel">
+                        <ul class="road-list">
                         <li class="road-list__item" v-for="road in roads" :key="road.id">
                             <button class="road-list-button" v-on:click="roadContent = road; buttonFocus($event); runAnimationOnClick()" v-bind:class="{ 'road-list-button--target' : road.id == 1}" :title="'Kliknij, aby zobaczyć podgląd dla ' + road.title" :aria-label="'Kliknij, aby zobaczyć podgląd dla' + road.title">
                                 <h3 class="road-list-title">{{road.title}}</h3>
-                                <p class="road-list-description"> {{road.subtitle}}</p>
+                                <p class="road-list-description">{{road.subtitle}}</p>
                             </button>
                         </li>
                     </ul>
+                    </div>
                     <div class="road-slider">
                         <div class="road-view">
                             <div class="road-view-box card-animate" >
@@ -36,12 +39,9 @@
                                         <li class="road-view-content-list__item">
                                             <p>Przeszkody: <span>{{roadContent.road_barriers}}</span></p>
                                         </li>
-                                        <li class="road-view-content-list__item">
-                                            <p>Przesiadki: <span>{{roadContent.road_transfers}}</span></p>
-                                        </li>
                                     </ul>
                                     <div class="road-view-content__image">
-                                        <img v-lazy-load  :src="linkPrefix + roadContent.road_map.formats.thumbnail.url" :alt="roadContent.road_map.alternativeText">
+                                        <img v-lazy-load  :src="linkPrefix + roadContent.road_map.formats.thumbnail.url" :alt="roadContent.road_map.alternativeText" @click="openImageView(linkPrefix + roadContent.road_map.formats.thumbnail.url)" title="Kliknij, aby włączyć podgląd zdjęcia" aria-label="Kliknij, aby włączyć podgląd zdjęcia">
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="road-view-box__tile">
                                     <picture> 
-                                        <img v-lazy-load  :src="linkPrefix + img.image.formats.small.url" :alt="img.image.alternativeText">
+                                        <img v-lazy-load  :src="linkPrefix + img.image.formats.small.url" :alt="img.image.alternativeText" @click="openImageView(linkPrefix + img.image.formats.small.url)" title="Kliknij, aby włączyć podgląd zdjęcia" aria-label="Kliknij, aby włączyć podgląd zdjęcia">
                                     </picture>
                                 </div>
                             </div>
@@ -64,19 +64,28 @@
             <div class="road-footer">
                 <nuxt-link :to="`road/${roadContent.title}-${roadContent.id}`" class="road-footer__link" :title="'Kliknij, aby przejść do strony ' + roadContent.title" :aria-label="'Kliknij, aby przejść do strony ' + roadContent.title">Zobacz opis trasy</nuxt-link>
             </div>
+            
       </div>
+      <imageView v-if="viewImage" :imageSrc="viewImageSrc" :close="false"/>
   </section>
 </template>
 
 <script>
+import imageView from "../fullViewImage.vue"
 import roadsQuery from "../../apollo/queries/home/road"
 export default {
     data(){
         return{
             roads:'',
             roadContent:'',
-            linkPrefix: 'https://kajaxadmin.haba.usermd.net'
+            linkPrefix: 'https://kajaxadmin.haba.usermd.net',
+            viewImage: false,
+            viewImageSrc: '',
+
         }
+    },
+    components:{
+        imageView
     },
     apollo:{
         roads:{
@@ -100,6 +109,13 @@ export default {
                 }
             }
             document.addEventListener('scroll',scrollAnimation)
+        },
+        openImageView(src){
+            this.viewImage = false
+            setTimeout(() => {
+            this.viewImage = true
+            }, 10);
+            this.viewImageSrc = src
         },
         runAnimationOnClick(){
             for(let card of document.querySelectorAll('.road-view-box')){
@@ -145,7 +161,6 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     color:#FFF;
-    z-index: 0;
 }
 @-moz-document url-prefix() {
     .container--road::before{
@@ -183,10 +198,10 @@ export default {
 }
 .road-container{
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     margin: 3rem 0;
 }
-.road-list{
+.road-river-carousel{
     height: auto;
     width: 100%;
     max-width: 380px;
@@ -194,6 +209,7 @@ export default {
     padding: 2rem 0;
     padding-left: 3rem;
     border-left: 1px solid rgba(255,255,255,0.4);
+
 }
 .road-list__item{
     margin: 2rem 0;
@@ -348,13 +364,31 @@ export default {
     .road-header{
         text-align: center;
     }
-    .road-list{
+    .road-river-carousel{
         display: flex;
         justify-content: space-evenly;
-        padding: 2rem 0;
+        padding: 2rem 2rem;
         margin: 0;
-        max-width: 100%;
+        width: 100%;
+        max-width: none;
         border-left: 0;
+    }
+    .road-list{
+        position: relative;
+        overflow-x: auto;
+        display: flex;
+        
+    }
+    .road-list__item{
+        min-width: 160px;
+        margin: 0 0.5rem;
+    }
+    .road-list-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
     }
     .road-view{
         padding-left: 5rem;

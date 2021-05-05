@@ -1,78 +1,27 @@
 <template>
-     <section class="container" id="cennik" data-animation-id="price" v-if="price !== ''">
+     <section class="container" id="cennik" data-animation-id="price" v-if="prices !== ''">
         <div class="layout">
                 <header class="layout-header" data-animation-id="title">
                     <h2 class="layout-header__title">Cennik spływów kajakowych</h2>
                     <p class="layout-header__subtitle">Wybierz okres wypożyczenia kajaków</p>
                     <div class="layout-option-box">
-                        <button class="button button--active">pon-czw</button>
-                        <button class="button">pt-niedz</button>
+                        <button class="button" @click="activePrice = '0'" :class="{'button--active': activePrice == '0'}">pon-pt</button>
+                        <button class="button" @click="activePrice = '1'" :class="{'button--active': activePrice == '1'}">sob-niedz</button>
                     </div>
                 </header>
             <div class="content-container">
                 <div class="wrapper" data-animation-id="wrapper">
-                    <div class="card">
+                    <div class="card" v-for="price in prices[activePrice].priceValue" :key="price.id">
                         <header class="card-header">
-                            <h3 class="card-header__title">Spływy kajakowe jednodniowe</h3>
+                            <h3 class="card-header__title">Spływy kajakowe {{price.typ}}</h3>
                         </header>
                         <div class="card-content">
                             <div class="card-price-box">
-                                <p class="card-price-box__value">40zł</p>
-                                <p class="card-price-box__info">za osobę</p>
+                                <p class="card-price-box__value">{{price.priceForPerson}}zł/{{price.priceFor}}</p>
+                                <p class="card-price-box__info" v-if="price.priceFor !== 'kajak'">{{price.priceForAll}}zł kajak</p>
                             </div>
                             <div class="card-content-box">
-                                <p class="card-content-box__type">Typ: <span class="card-content-box__text">Kajak 2 osobowy</span></p>
-                            </div>
-                        </div>
-                        <footer class="card-footer">
-                            <a href="tel:696599556" class="button button--tel" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń</a>
-                        </footer>
-                    </div>
-                    <div class="card">
-                        <header class="card-header">
-                            <h3 class="card-header__title">Spływy kajakowe jednodniowe</h3>
-                        </header>
-                        <div class="card-content">
-                            <div class="card-price-box">
-                                <p class="card-price-box__value">50zł</p>
-                                <p class="card-price-box__info">za osobę</p>
-                            </div>
-                            <div class="card-content-box">
-                                <p class="card-content-box__type">Typ: <span class="card-content-box__text">Kajak 1 osobowy</span></p>
-                            </div>
-                        </div>
-                        <footer class="card-footer">
-                            <a href="tel:696599556" class="button button--tel" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń</a>
-                        </footer>
-                    </div>
-                    <div class="card">
-                        <header class="card-header">
-                            <h3 class="card-header__title">Spływy kajakowe kilkudniowe</h3>
-                        </header>
-                        <div class="card-content">
-                            <div class="card-price-box">
-                                <p class="card-price-box__value">30zł</p>
-                                <p class="card-price-box__info">za osobę</p>
-                            </div>
-                            <div class="card-content-box">
-                                <p class="card-content-box__type">Typ: <span class="card-content-box__text">Kajak 2 osobowy</span></p>
-                            </div>
-                        </div>
-                        <footer class="card-footer">
-                            <a href="tel:696599556" class="button button--tel" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń</a>
-                        </footer>
-                    </div>
-                    <div class="card">
-                        <header class="card-header">
-                            <h3 class="card-header__title">Spływy kajakowe kilkudniowe</h3>
-                        </header>
-                        <div class="card-content">
-                            <div class="card-price-box">
-                                <p class="card-price-box__value">40zł</p>
-                                <p class="card-price-box__info">za osobę</p>
-                            </div>
-                            <div class="card-content-box">
-                                <p class="card-content-box__type">Typ: <span class="card-content-box__text">Kajak 1 osobowy</span></p>
+                                <p class="card-content-box__type">Typ: <span class="card-content-box__text">Kajak {{price.numberOfSeats}} osobowy</span></p>
                             </div>
                         </div>
                         <footer class="card-footer">
@@ -86,10 +35,19 @@
 </template>
 
 <script>
+import priceQuery from "../../apollo/queries/home/price"
 export default {
     data(){
         return{
-            price:'a'
+            prices:'',
+            activePrice:'0'
+
+        }
+    },
+    apollo:{
+        prices:{
+            prefetch:true,
+            query: priceQuery
         }
     }
 }
@@ -98,7 +56,6 @@ export default {
 <style scoped>
     .container{
     position: relative;
-    z-index: 0;
     min-height: 600px;
     background-color: #F4F4F4;
     padding: 7rem 5rem;
@@ -159,7 +116,7 @@ export default {
         max-width: 1300px;
         padding: 4rem 0 2rem;
         margin: 0 auto;
-        overflow-x: scroll;
+        overflow-x: auto;
         scrollbar-width: thin;
         scrollbar-color: #005492 rgb(192, 192, 192);
     }

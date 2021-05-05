@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prices",
+  "info": {
+    "name": "8. Sekcja Cennik na stronie głównej",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nameDays": {
+      "type": "string"
+    },
+    "priceValue": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home-price.home-price"
+    }
+  }
+}

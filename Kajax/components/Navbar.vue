@@ -11,8 +11,10 @@
               <li class="menu__list-item"><a href="/#road" title="Kliknij, aby zjechać do zakładki spływy" aria-label="Kliknij, aby zjechać do zakładki spływy">Spływy</a> </li>
               <li class="menu__list-item"><a href="/#wypozyczalnia" title="Kliknij, aby zjechać do zakładki wypożyczalnia" aria-label="Kliknij, aby zjechać do zakładki wypożyczalnia">Wypożyczalnia</a> </li>
               <li class="menu__list-item"><a href="/#cennik" title="Kliknij, aby zjechać do zakładki cennik" aria-label="Kliknij, aby zjechać do zakładki cennik">Cennik</a> </li>
-              <li class="menu__list-item"><nuxt-link to="/hut" title="Kliknij, aby przejść do strony z domkiem" aria-label="Kliknij, aby przejść do strony z domkiem">Domki</nuxt-link> </li>
+              <li class="menu__list-item"><nuxt-link to="/hut" title="Kliknij, aby przejść do strony z domkiem" aria-label="Kliknij, aby przejść do strony z domkiem">Domek</nuxt-link> </li>
               <li class="menu__list-item"><a href="/#kontakt" title="Kliknij, aby zjechać do zakładki kontakt" aria-label="Kliknij, aby zjechać do zakładki kontakt">Kontakt</a> </li>
+              <li class="menu__list-item menu__list-item--social-media"><a href="https://www.facebook.com/Kajax-Sp%C5%82ywy-kajakowe-342252465837367/" title="Kliknij, aby przejść do naszej strpny na Facebooku" aria-label="Kliknij, aby przejść do naszej strpny na Facebooku">Facebook</a> </li>
+              
           </ul>
       </nav>
   </div>
@@ -71,6 +73,9 @@ export default {
         box-shadow: 0 0 4px 2px rgb(192, 192, 192);
         color:#000;
     }
+    .navbar--full .menu__list-item--social-media{
+        color:#005492;
+    }
     .navbar--full .menu{
         color:#000;
     }
@@ -109,16 +114,20 @@ export default {
         margin-left: 1rem;
         transition: 0.3s;
         text-decoration: none;
+        font-weight: bold;
     }
     .menu__list-item:hover{
         font-family: 'Montserrat';
         font-weight: bold;
         text-decoration: underline;
     }
+    .menu__list-item--social-media{
+        font-weight: bold;
+    }
     .ham{
         display: none;
     }
-    @media screen and (max-width:1000px) {
+    @media screen and (max-width:1050px) {
     .navbar{
         justify-content: space-between;
         align-items: center;
@@ -130,6 +139,10 @@ export default {
     }
     .navbar--full .navbar-logo{
         color:#000;
+    }
+    
+    .navbar--full .menu__list-item--social-media{
+        color:#FFF;
     }
     .nav{
         position: fixed;

@@ -7,7 +7,7 @@
                         <p class="hut-header-lead">
                             {{hutPage.subtitleHeader}}
                         </p>
-                        <a href="tel:696599556" class="hut-header-button" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń</a>
+                        <a href="tel:696697256" class="hut-header-button" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń</a>
                 </div>
             </div>
             <div class="hut-header__column-image">
@@ -139,8 +139,8 @@
                             </div>
                             <div class="price-card-variants__content">
                                 <h4 class="card-variants-title">{{priceVariant.title}}</h4>
-                                <p>
-                                    <span class="price" :class="{'price--promotion': priceVariant.oldPrice !== null }">{{priceVariant.price}}zł </span> <span class="price-old" v-if="priceVariant.oldPrice !== null">{{priceVariant.oldPrice}}zł</span> / doba
+                                <p v-if="priceVariant.price !== null">
+                                    <span class="price" :class="{'price--promotion': priceVariant.oldPrice !== null }" >{{priceVariant.price}}zł </span> <span class="price-old" v-if="priceVariant.oldPrice !== null">{{priceVariant.oldPrice}}zł</span> / doba
                                 </p>
                                 <p>
                                 {{priceVariant.shortDescription1}}  
@@ -150,7 +150,7 @@
                                 </p>
                             </div>
                         </div>
-                            <a class="price-button" href="tel:+48696599556" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń</a>
+                            <a class="price-button" href="tel:+48696697256" title="Kliknij, aby zadzwonić" aria-label="Kliknij, aby zadzwonić">Zadzwoń</a>
                     </div>
                 </div>
                     <div class="additional-information" v-if="hutPage.additionalInformation">
@@ -793,18 +793,20 @@ export default {
         font-size: 0.8rem;
     }
     .price-card-variants__content{
+        width: calc(100% - 60px - 1.5rem);
+        padding-left: 1.5rem;
         margin-bottom: 1.5rem;
     }
     .price-card-variants__content p{
         margin: 0.3rem 0;
     }
     .price-card-variants__img-box{
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 60px;
         height: 60px;
-        margin-right: 1.5rem;
         border:1px solid #005492;
         border-radius: 100px;
     }

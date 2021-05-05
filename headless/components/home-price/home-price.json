@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_home_price_home_prices",
+  "info": {
+    "name": "home-price",
+    "icon": "align-right",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "typ": {
+      "type": "enumeration",
+      "enum": [
+        "jednodniowe",
+        "kilkudniowe"
+      ],
+      "default": "jednodniowe",
+      "required": true
+    },
+    "priceForPerson": {
+      "type": "integer",
+      "required": true
+    },
+    "priceForAll": {
+      "type": "integer"
+    },
+    "numberOfSeats": {
+      "type": "integer",
+      "required": true,
+      "max": 4,
+      "min": 1
+    },
+    "priceFor": {
+      "type": "enumeration",
+      "enum": [
+        "os",
+        "kajak"
+      ],
+      "default": "os",
+      "required": true
+    }
+  }
+}
